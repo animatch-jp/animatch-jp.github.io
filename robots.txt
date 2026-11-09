@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://animatch-jp.github.io/sitemap.xml
