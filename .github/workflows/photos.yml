@@ -1,0 +1,26 @@
+name: photos
+on:
+  push:
+    paths: ['tools/photos.txt', '.github/workflows/photos.yml']
+permissions:
+  contents: write
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: download Unsplash photos (Unsplash License)
+        run: |
+          mkdir -p assets/photos
+          while read name id; do
+            [ -z "$name" ] && continue
+            curl -sSfL "https://images.unsplash.com/photo-${id}?ixlib=rb-4.1.0&fm=jpg&q=82&w=1600" -o "assets/photos/${name}.jpg"
+          done < tools/photos.txt
+          ls -la assets/photos
+      - name: commit
+        run: |
+          git config user.name "AniMatch"
+          git config user.email "animatch.jp@gmail.com"
+          git add assets/photos
+          git diff --cached --quiet || git commit -m "Unsplashの写真を置く（tools/photos.txt から）"
+          git push
