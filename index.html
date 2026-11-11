@@ -408,6 +408,26 @@ button{font-family:inherit}
 @media (max-width:960px){.contact{grid-template-columns:1fr}.cbox{padding:32px 26px 150px}.cbox .animaru{width:120px;height:120px;right:20px}}
 
 
+
+/* ===== いろいろな動物（曲がって並ぶ写真） ===== */
+.ring-sec{overflow:hidden;padding-bottom:96px}
+.ring-sec .head{margin-bottom:0}
+.ring-stage{--R:780px;--cw:250px;position:relative;height:400px;perspective:1000px;perspective-origin:50% 50%;touch-action:pan-y;cursor:grab;user-select:none;-webkit-user-select:none}
+.ring-stage.drag{cursor:grabbing}
+.ring{list-style:none;margin:0;padding:0;position:absolute;left:50%;top:50%;width:0;height:0;transform-style:preserve-3d}
+.rc{position:absolute;left:calc(var(--cw)/-2);top:calc(var(--cw)*-.6);width:var(--cw);border-radius:22px;overflow:hidden;background:#fff;box-shadow:0 0 0 1px rgba(29,36,32,.07);backface-visibility:hidden;-webkit-backface-visibility:hidden;transition:opacity .3s}
+.rc img{width:100%;height:auto;aspect-ratio:1;object-fit:cover;pointer-events:none}
+.rc-cap{display:grid;gap:0;padding:10px 16px 12px;line-height:1.45}
+.rc-cap b{font-size:17px}
+.rc-cap small{font-size:12px;color:var(--ink-3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ring-stage::after{content:"";position:absolute;left:10%;right:10%;bottom:6%;height:40px;background:radial-gradient(closest-side,rgba(29,36,32,.10),transparent);pointer-events:none}
+.ring-ctl{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:0;color:var(--ink-3);font-size:14px}
+.rbtn{display:grid;place-items:center;width:46px;height:46px;border-radius:50%;border:0;background:#fff;color:var(--ink);cursor:pointer;box-shadow:0 0 0 1px var(--line) inset;transition:box-shadow .2s,transform .2s}
+.rbtn:hover{box-shadow:0 0 0 1.5px var(--ink) inset}
+.rbtn:active{transform:scale(.94)}
+.rbtn svg{width:18px;height:18px}
+@media (max-width:640px){.ring-stage{--R:440px;--cw:140px;height:270px;perspective:620px}.rc{border-radius:16px}.rc-cap{padding:7px 10px 9px}.rc-cap b{font-size:14px}.rc-cap small{font-size:10px}.ring-sec{padding-bottom:72px}}
+
 /* ===== 保護団体・動物病院の方へ ===== */
 .partners{background:var(--green);color:#fff;position:relative;overflow:hidden}
 .partners::before{content:"";position:absolute;width:620px;height:620px;right:-200px;top:-260px;border-radius:50%;background:radial-gradient(circle,rgba(82,183,136,.45),transparent 70%);pointer-events:none}
@@ -700,6 +720,42 @@ button{font-family:inherit}
 </section>
 
 <!-- さわって見る -->
+<!-- いろいろな動物 -->
+<section class="section ring-sec" id="animals" aria-labelledby="a-title">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="kicker">いろいろな動物</span>
+      <h2 id="a-title">犬や猫だけじゃない。<br>どの子も、主役。</h2>
+      <p>うさぎも、インコも、トカゲも。ランキングは動物の種類ごとなので、どの子も1位になれます。</p>
+    </div>
+  </div>
+  <div class="ring-stage" id="ring-stage" aria-roledescription="カルーセル" aria-label="いろいろな動物の写真">
+    <ul class="ring" id="ring">
+          <li class="rc"><img src="assets/photos/t/cat.jpg" alt="猫のむぎ" width="480" height="480" loading="lazy" draggable="false"><span class="rc-cap"><b>むぎ</b><small>猫</small></span></li>
+          <li class="rc"><img src="assets/photos/t/hamster.jpg" alt="ハムスターのだいふく" width="480" height="480" loading="lazy" draggable="false"><span class="rc-cap"><b>だいふく</b><small>ハムスター</small></span></li>
+          <li class="rc"><img src="assets/photos/t/dog.jpg" alt="犬のこむぎ" width="480" height="480" loading="lazy" draggable="false"><span class="rc-cap"><b>こむぎ</b><small>犬</small></span></li>
+          <li class="rc"><img src="assets/photos/t/bird.jpg" alt="インコのそら" width="480" height="480" loading="lazy" draggable="false"><span class="rc-cap"><b>そら</b><small>インコ</small></span></li>
+          <li class="rc"><img src="assets/photos/t/rabbit.jpg" alt="うさぎのもち" width="480" height="480" loading="lazy" draggable="false"><span class="rc-cap"><b>もち</b><small>うさぎ</small></span></li>
+          <li class="rc"><img src="assets/photos/t/gecko.jpg" alt="ヒョウモントカゲモドキのレモン" width="480" height="480" loading="lazy" draggable="false"><span class="rc-cap"><b>レモン</b><small>ヒョウモントカゲモドキ</small></span></li>
+          <li class="rc"><img src="assets/photos/t/cat2.jpg" alt="猫のミルク" width="480" height="480" loading="lazy" draggable="false"><span class="rc-cap"><b>ミルク</b><small>猫</small></span></li>
+          <li class="rc"><img src="assets/photos/t/guinea.jpg" alt="モルモットのくるみ" width="480" height="480" loading="lazy" draggable="false"><span class="rc-cap"><b>くるみ</b><small>モルモット</small></span></li>
+          <li class="rc"><img src="assets/photos/t/puppy.jpg" alt="犬のポチ" width="480" height="480" loading="lazy" draggable="false"><span class="rc-cap"><b>ポチ</b><small>犬</small></span></li>
+          <li class="rc"><img src="assets/photos/t/cockatiel.jpg" alt="オカメインコのぴぃ" width="480" height="480" loading="lazy" draggable="false"><span class="rc-cap"><b>ぴぃ</b><small>オカメインコ</small></span></li>
+          <li class="rc"><img src="assets/photos/t/tortoise.jpg" alt="リクガメのカメきち" width="480" height="480" loading="lazy" draggable="false"><span class="rc-cap"><b>カメきち</b><small>リクガメ</small></span></li>
+          <li class="rc"><img src="assets/photos/t/cat3.jpg" alt="猫のとら" width="480" height="480" loading="lazy" draggable="false"><span class="rc-cap"><b>とら</b><small>猫</small></span></li>
+          <li class="rc"><img src="assets/photos/t/budgie.jpg" alt="セキセイインコのあお" width="480" height="480" loading="lazy" draggable="false"><span class="rc-cap"><b>あお</b><small>セキセイインコ</small></span></li>
+          <li class="rc"><img src="assets/photos/t/hamster2.jpg" alt="ハムスターのしらたま" width="480" height="480" loading="lazy" draggable="false"><span class="rc-cap"><b>しらたま</b><small>ハムスター</small></span></li>
+          <li class="rc"><img src="assets/photos/t/shelter.jpg" alt="犬のきなこ" width="480" height="480" loading="lazy" draggable="false"><span class="rc-cap"><b>きなこ</b><small>犬</small></span></li>
+          <li class="rc"><img src="assets/photos/t/gecko2.jpg" alt="ヒョウモントカゲモドキのゆず" width="480" height="480" loading="lazy" draggable="false"><span class="rc-cap"><b>ゆず</b><small>ヒョウモントカゲモドキ</small></span></li>
+    </ul>
+  </div>
+  <div class="ring-ctl">
+    <button type="button" class="rbtn" data-d="-1" aria-label="前へ"><svg aria-hidden="true" style="transform:scaleX(-1)"><use href="#i-arrow"/></svg></button>
+    <span>指でまわせます</span>
+    <button type="button" class="rbtn" data-d="1" aria-label="次へ"><svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+  </div>
+</section>
+
 <section class="section" id="demo" aria-labelledby="d-title">
   <div class="wrap">
     <div class="head reveal"><span class="kicker">使い方</span><h2 id="d-title">あなたに合った使い方を</h2></div>
@@ -1058,6 +1114,38 @@ button{font-family:inherit}
     els.forEach(function(el){io.observe(el)});
   }else{els.forEach(function(el){el.classList.add('in')});document.getElementById('rec').classList.add('on')}
 
+
+
+  /* いろいろな動物：曲がって並ぶ写真。ゆっくり回り、指でまわせる */
+  (function(){
+    var st=document.getElementById('ring-stage'),ring=document.getElementById('ring');if(!st)return;
+    var cs=[].slice.call(ring.children),N=cs.length,step=360/N,rot=0,vel=0,drag=false,lx=0,run=false,seen=false,target=null;
+    function R(){return parseFloat(getComputedStyle(st).getPropertyValue('--R'))||700}
+    function draw(){
+      var r=R();ring.style.transform='translateZ('+(r*0.42)+'px) rotateY('+rot+'deg)';
+      cs.forEach(function(c,i){
+        var a=((i*step+rot)%360+540)%360-180;
+        c.style.transform='rotateY('+(i*step)+'deg) translateZ('+(-r)+'px)';
+        var far=Math.abs(a)>78;c.style.opacity=far?0:1;c.style.visibility=far?'hidden':'visible';
+        c.setAttribute('aria-hidden',far);
+      });
+    }
+    function loop(){
+      if(!drag){
+        if(target!==null){var d=target-rot;rot+=d*0.12;if(Math.abs(d)<.05){rot=target;target=null}}
+        else{rot+=vel;vel*=0.94;if(!reduce&&Math.abs(vel)<0.04)rot-=0.05}
+      }
+      draw();if(run)requestAnimationFrame(loop);
+    }
+    function start(){if(!run){run=true;requestAnimationFrame(loop)}}
+    if('IntersectionObserver' in window){new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)start();else run=false})}).observe(st)}else start();
+    draw();
+    st.addEventListener('pointerdown',function(e){drag=true;target=null;lx=e.clientX;vel=0;st.classList.add('drag');st.setPointerCapture(e.pointerId)});
+    st.addEventListener('pointermove',function(e){if(!drag)return;var dx=e.clientX-lx;lx=e.clientX;var k=(window.innerWidth<640?0.22:0.12);rot+=dx*k;vel=dx*k});
+    function up(){drag=false;st.classList.remove('drag')}
+    st.addEventListener('pointerup',up);st.addEventListener('pointercancel',up);
+    document.querySelectorAll('.rbtn').forEach(function(b){b.addEventListener('click',function(){var d=+b.getAttribute('data-d');target=Math.round((target!==null?target:rot)/step)*step-d*step;vel=0;start()})});
+  })();
 
   /* お問い合わせ：ご用件をえらぶと、ひな形が入る */
   var MAIL='animatch.jp@gmail.com';
