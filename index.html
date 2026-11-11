@@ -407,6 +407,71 @@ button{font-family:inherit}
 @media (max-width:640px){.info{padding:8px 20px}.info div{grid-template-columns:6em minmax(0,1fr);gap:10px}.seg button{font-size:14px;padding:10px 12px}}
 @media (max-width:960px){.contact{grid-template-columns:1fr}.cbox{padding:32px 26px 150px}.cbox .animaru{width:120px;height:120px;right:20px}}
 
+
+/* ===== 保護団体・動物病院の方へ ===== */
+.partners{background:var(--green);color:#fff;position:relative;overflow:hidden}
+.partners::before{content:"";position:absolute;width:620px;height:620px;right:-200px;top:-260px;border-radius:50%;background:radial-gradient(circle,rgba(82,183,136,.45),transparent 70%);pointer-events:none}
+.partners .wrap{position:relative}
+.partners .head .kicker{color:var(--sun)}
+.partners .head p{color:rgba(255,255,255,.82)}
+.pcards{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.pcard{display:flex;flex-direction:column;border-radius:var(--r-xl);padding:40px 36px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.pcard .pic{display:grid;place-items:center;width:56px;height:56px;border-radius:18px;background:#fff;color:var(--green)}
+.pcard .pic svg{width:28px;height:28px}
+.pcard h3{font-size:26px;font-weight:900;margin-top:20px}
+.pcard>p{margin-top:8px;color:rgba(255,255,255,.82);font-size:15px}
+.pcard ul{list-style:none;margin:22px 0 30px;padding:22px 0 0;border-top:1px solid rgba(255,255,255,.18);display:grid;gap:11px}
+.pcard li{display:flex;gap:10px;font-size:15px;line-height:1.7}
+.pcard li svg{flex:0 0 auto;width:18px;height:18px;margin-top:4px;color:var(--sun)}
+.pcard .btn{margin-top:auto;align-self:flex-start}
+.btn-white{background:#fff;color:var(--ink);font-size:16px;padding:16px 26px;box-shadow:0 10px 24px -14px rgba(0,0,0,.5)}
+.btn-white:hover{transform:translateY(-2px);box-shadow:0 16px 30px -14px rgba(0,0,0,.55)}
+.psteps{list-style:none;margin:28px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.psteps li{display:grid;grid-template-columns:auto 1fr;gap:2px 14px;align-items:center;padding:20px 22px;border-radius:var(--r-lg);background:rgba(0,0,0,.14)}
+.psteps b{grid-row:span 2;display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--sun);color:var(--ink);font-size:17px}
+.psteps span{font-weight:700}
+.psteps small{font-size:13px;color:rgba(255,255,255,.75);line-height:1.6}
+.pnote{text-align:center;font-size:14px;color:rgba(255,255,255,.8);margin-top:26px}
+@media (max-width:960px){.pcards,.psteps{grid-template-columns:1fr}.pcard{padding:32px 26px}.pcard .btn{align-self:stretch}}
+
+/* ほしい機能 */
+.wish{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;max-width:880px;margin:20px auto 0;padding:24px 28px;border-radius:var(--r-lg);background:#fff;box-shadow:0 0 0 1px var(--line) inset}
+.wish p{font-size:15px;color:var(--ink-2)}
+.wish b{display:block;color:var(--ink);font-size:16px}
+
+/* お問い合わせのフォーム */
+.cbox h2{padding-right:120px}
+.cform .topics{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.cform .topics button{border:0;cursor:pointer;font-size:14px;font-weight:700;padding:9px 16px;border-radius:999px;background:rgba(255,255,255,.22);color:#fff;transition:background .2s,color .2s}
+.cform .topics button:hover{background:rgba(255,255,255,.34)}
+.cform .topics button[aria-pressed=true]{background:#fff;color:var(--orange-d)}
+.cform .lb{display:block;font-size:13px;font-weight:700;margin:20px 0 8px;color:rgba(255,255,255,.92)}
+.cform textarea{display:block;width:100%;min-height:180px;border:0;border-radius:18px;padding:16px 18px;font:inherit;font-size:15px;line-height:1.75;color:var(--ink);background:#fff;resize:vertical}
+.cform textarea:focus{outline:3px solid rgba(255,255,255,.7);outline-offset:2px}
+.cform .acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.cform .btn-white{color:var(--orange-d)}
+.btn-line{background:transparent;color:#fff;font-size:15px;padding:15px 22px;box-shadow:0 0 0 1.5px rgba(255,255,255,.75) inset}
+.btn-line:hover{background:rgba(255,255,255,.14)}
+.cbox .mail{margin-top:26px;padding-top:20px;border-top:1px solid rgba(255,255,255,.3)}
+.cbox .mail span{font-size:13px;font-weight:700;opacity:.85}
+.cbox .mail a{font-size:clamp(18px,2vw,22px)}
+.cbox .animaru{top:26px;bottom:auto;right:26px;width:120px;height:120px}
+.side{display:grid;gap:20px;align-content:start;min-width:0}
+.sns{border-radius:var(--r-xl);background:var(--surface);padding:30px 32px}
+.sns h3{font-size:18px;font-weight:900}
+.sns p{font-size:14px;color:var(--ink-2);margin:6px 0 16px}
+.sns a{display:flex;align-items:center;gap:14px;padding:14px 18px;margin-top:10px;border-radius:18px;background:#fff;color:var(--ink);text-decoration:none;box-shadow:0 0 0 1px var(--line) inset;transition:transform .2s var(--ease),box-shadow .2s}
+.sns a:hover{transform:translateY(-2px);box-shadow:0 0 0 1.5px var(--ink) inset}
+.sns .lg{width:28px;height:28px;flex:0 0 auto}
+.sns span{display:grid;line-height:1.4;font-size:14px;color:var(--ink-2)}
+.sns span b{font-size:16px;color:var(--ink)}
+.sns .ar{width:18px;height:18px;margin-left:auto;color:var(--ink-3)}
+.fsns{display:flex;gap:10px;margin-top:16px}
+.fsns a{display:grid;place-items:center;width:40px;height:40px;border-radius:12px;color:var(--ink);box-shadow:0 0 0 1px var(--line) inset}
+.fsns a:hover{color:var(--orange-d);box-shadow:0 0 0 1.5px var(--orange-d) inset}
+.fsns svg{width:20px;height:20px}
+@media (max-width:960px){.cbox{padding:32px 24px 36px}.cbox h2{padding-right:96px}.cbox .animaru{width:92px;height:92px;top:22px;right:16px}.cform .acts .btn{flex:1 1 auto}.sns{padding:26px 22px}}
+
 /* ===== フッター ===== */
 .site-footer{padding:72px 0 40px;border-top:1px solid var(--line);margin-top:120px}
 .site-footer .top{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap}
@@ -459,6 +524,11 @@ button{font-family:inherit}
   <symbol id="i-tick" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M16 16l4 4" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></symbol>
+  <symbol id="i-house" viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M12 17.5s-3.2-1.9-3.2-4a1.8 1.8 0 0 1 3.2-1.1 1.8 1.8 0 0 1 3.2 1.1c0 2.1-3.2 4-3.2 4z" fill="currentColor"/></symbol>
+  <symbol id="i-clinic" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 8v8M8 12h8" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></symbol>
+  <symbol id="i-threads" viewBox="0 0 24 24"><path d="M16.6 11.2c-.1 0-.2-.1-.3-.1-.2-2.8-1.7-4.4-4.3-4.4-1.6 0-2.9.7-3.7 1.9l1.4 1c.6-.9 1.5-1.1 2.3-1.1 1 0 1.7.3 2.1.9.3.4.5 1 .6 1.7-.8-.1-1.6-.2-2.5-.1-2.5.1-4.1 1.6-4 3.6.1 1 .6 1.9 1.4 2.4.7.5 1.6.7 2.6.6 1.3-.1 2.2-.5 2.9-1.4.5-.7.8-1.5.9-2.6.6.4 1.1.9 1.3 1.5.4 1 .4 2.6-.9 3.9-1.2 1.2-2.5 1.6-4.5 1.6-2.2 0-3.9-.7-5-2.1-1-1.3-1.6-3.2-1.6-5.6s.5-4.3 1.6-5.6c1.1-1.4 2.8-2.1 5-2.1s3.9.7 5.1 2.1c.6.7 1 1.5 1.3 2.5l1.7-.4c-.3-1.2-.9-2.3-1.6-3.2C17.1 2.9 15 2 12.3 2c-2.7 0-4.8.9-6.2 2.7C4.8 6.3 4.2 8.5 4.2 11.3s.6 5 1.9 6.6c1.4 1.8 3.5 2.7 6.2 2.7 2.4 0 4.1-.6 5.5-2 1.9-1.9 1.8-4.2 1.2-5.6-.4-1-1.3-1.8-2.4-2.3zm-4.3 4.6c-1.1.1-2.2-.4-2.2-1.4 0-.8.5-1.6 2.4-1.7h.6c.7 0 1.3.1 1.9.2-.2 2.4-1.4 2.8-2.7 2.9z" fill="currentColor"/></symbol>
+  <symbol id="i-insta" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5.5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.4" cy="6.6" r="1.3" fill="currentColor"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 7l8 6 8-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
   <symbol id="n-home" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" fill="currentColor"/></symbol>
   <symbol id="n-pets" viewBox="0 0 24 24"><circle cx="4.5" cy="9.5" r="2.5" fill="currentColor"/><circle cx="9" cy="5.5" r="2.5" fill="currentColor"/><circle cx="15" cy="5.5" r="2.5" fill="currentColor"/><circle cx="19.5" cy="9.5" r="2.5" fill="currentColor"/><path d="M17.3 14.9c-.9-1-1.6-1.9-2.5-2.9-.5-.5-1-1.1-1.7-1.3-.1 0-.2-.1-.3-.1-.3 0-.5-.1-.8-.1s-.6 0-.8.1c-.1 0-.2 0-.3.1-.7.2-1.2.8-1.7 1.3-.8 1-1.6 1.9-2.5 2.9-1.3 1.3-2.9 2.8-2.6 4.8.3 1 1 2 2.3 2.3.7.1 3.2-.5 5.6-.5h.2c2.4 0 4.9.6 5.6.5 1.3-.3 2-1.3 2.3-2.3.3-2-1.3-3.5-2.8-4.8z" fill="currentColor"/></symbol>
   <symbol id="n-event" viewBox="0 0 24 24"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1h-2zm3 18H5V8h14v11z" fill="currentColor"/></symbol>
@@ -478,7 +548,7 @@ button{font-family:inherit}
           <li><a href="#features">できること</a></li>
           <li><a href="#demo">使い方</a></li>
           <li><a href="#safety">安心のしくみ</a></li>
-          <li><a href="#plans">使う人ごとに</a></li>
+          <li><a href="#partners">団体・病院の方へ</a></li>
           <li><a href="#faq">よくある質問</a></li>
           <li class="cta"><a href="#contact">お問い合わせ</a></li>
         </ul>
@@ -757,7 +827,7 @@ button{font-family:inherit}
           <li><svg aria-hidden="true"><use href="#i-tick"/></svg>どうぶつマップで見つけてもらえる</li>
           <li><svg aria-hidden="true"><use href="#i-tick"/></svg>里親募集を画像にしてSNSでシェア</li>
         </ul>
-        <a class="btn btn-primary" href="#contact">団体での使い方を聞く</a>
+        <a class="btn btn-primary" href="#partners">団体での使い方を見る</a>
       </div>
       <div class="plan reveal">
         <span class="who">動物が好きな人</span>
@@ -775,6 +845,49 @@ button{font-family:inherit}
   </div>
 </section>
 
+<!-- 保護団体・動物病院の方へ -->
+<section class="section partners" id="partners" aria-labelledby="pt-title">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="kicker">保護団体・動物病院の方へ</span>
+      <h2 id="pt-title">いっしょに、動物の居場所を広げませんか。</h2>
+      <p>AniMatchは、保護団体や動物病院の情報を、動物好きの人に届けたいと考えています。アプリから申しこむと、運営が内容を確かめたあとに公開されます。</p>
+    </div>
+    <div class="pcards">
+      <article class="pcard reveal">
+        <span class="pic"><svg aria-hidden="true"><use href="#i-house"/></svg></span>
+        <h3>保護団体の方へ</h3>
+        <p>保護された子たちのことや活動を、地域の動物好きの人に知ってもらえます。</p>
+        <ul>
+          <li><svg aria-hidden="true"><use href="#i-tick"/></svg>里親募集・ボランティア募集を出せる</li>
+          <li><svg aria-hidden="true"><use href="#i-tick"/></svg>譲渡会の告知やお礼を、お知らせ・活動報告として出せる</li>
+          <li><svg aria-hidden="true"><use href="#i-tick"/></svg>どうぶつマップで、都道府県やことばから見つけてもらえる</li>
+          <li><svg aria-hidden="true"><use href="#i-tick"/></svg>里親募集を、ロゴ入りの画像にしてSNSでシェアできる</li>
+        </ul>
+        <button class="btn btn-white" type="button" data-topic="org">団体として相談する<svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+      </article>
+      <article class="pcard reveal">
+        <span class="pic"><svg aria-hidden="true"><use href="#i-clinic"/></svg></span>
+        <h3>動物病院の方へ</h3>
+        <p>どうぶつマップに病院の情報を載せて、近くで病院をさがしている人に見つけてもらえます。</p>
+        <ul>
+          <li><svg aria-hidden="true"><use href="#i-tick"/></svg>診療時間・休診日・アクセス・写真を載せられる</li>
+          <li><svg aria-hidden="true"><use href="#i-tick"/></svg>みている動物の種類や、夜間・救急、入院のありなしを出せる</li>
+          <li><svg aria-hidden="true"><use href="#i-tick"/></svg>病院のページから、いつでも内容を直せる</li>
+          <li><svg aria-hidden="true"><use href="#i-tick"/></svg>休診のときは、マップから一時的に外せる</li>
+        </ul>
+        <button class="btn btn-white" type="button" data-topic="hospital">病院として相談する<svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+      </article>
+    </div>
+    <ol class="psteps reveal" aria-label="載せるまでの流れ">
+      <li><b>1</b><span>アプリから申しこむ</span><small>団体名・病院名や住所を入れます</small></li>
+      <li><b>2</b><span>運営が確かめる</span><small>ほんとうにある団体・病院か、内容を見ます</small></li>
+      <li><b>3</b><span>アプリに載る</span><small>どうぶつマップなどに出るようになります</small></li>
+    </ol>
+    <p class="pnote reveal">アプリは2027年2月公開予定です。公開の前でも、メールでご相談をお受けしています。</p>
+  </div>
+</section>
+
 <!-- お知らせ -->
 <section class="section tint" id="news" aria-labelledby="n-title">
   <div class="wrap">
@@ -786,6 +899,10 @@ button{font-family:inherit}
       <li><time datetime="2026-11-02">2026.11.02</time><span class="cat dev">開発</span><p>1年前の今日のうちの子が、ホームに出る「思い出の日」を作りました。</p></li>
       <li><time datetime="2026-11-01">2026.11.01</time><span class="cat dev">開発</span><p>ランキングを、動物の種類ごとに見られるようにしました。</p></li>
     </ul>
+    <div class="wish reveal">
+      <p><b>「こんな機能がほしい」を、教えてください。</b>いただいた声は、これからの開発の参考にします。</p>
+      <button class="btn btn-ghost" type="button" data-topic="idea">ほしい機能を送る</button>
+    </div>
   </div>
 </section>
 
@@ -801,7 +918,9 @@ button{font-family:inherit}
       <details><summary>いつから使えますか？</summary><p>2027年2月公開予定です。公開したら、このページのお知らせでお伝えします。</p></details>
       <details><summary>どんな動物と暮らしている人が使えますか？</summary><p>犬・猫・うさぎ・小鳥・小動物・爬虫類など、いろいろな動物と暮らす人に使ってほしいアプリです。ランキングも動物の種類ごとに見られます。</p></details>
       <details><summary>動物を飼っていなくても使えますか？</summary><p>はい。動物が好きな方に使ってほしいアプリです。里親募集やボランティア募集を見たり、保護団体のお知らせを読んだり、みんなのペット自慢を楽しんだりできます。</p></details>
-      <details><summary>保護団体として使えますか？</summary><p>はい。お知らせ・活動報告や、里親募集・ボランティア募集を出せます。くわしくは<a href="#contact">お問い合わせ</a>からご連絡ください。</p></details>
+      <details><summary>保護団体として使えますか？</summary><p>はい。アプリから申しこむと、運営が確かめたあとに、お知らせ・活動報告や、里親募集・ボランティア募集を出せるようになります。くわしくは<a href="#partners">保護団体・動物病院の方へ</a>をご覧ください。</p></details>
+      <details><summary>動物病院も載せられますか？</summary><p>はい。病院の方がアプリから申しこむと、運営が確かめたあとに、どうぶつマップに載ります。診療時間や、みている動物の種類などを、病院のページから直せます。</p></details>
+      <details><summary>公開したら知りたいです。</summary><p>公開したら、このページのお知らせと、<a href="https://www.threads.com/@animatch_jp" target="_blank" rel="noopener">Threads</a>・<a href="https://www.instagram.com/animatch_jp/" target="_blank" rel="noopener">Instagram</a>でお知らせします。</p></details>
       <details><summary>「あにまる」ってだれですか？</summary><p>アプリの中で使い方を案内してくれる、AniMatchのキャラクターです。おもちのような、なにものでもない生き物です。</p></details>
       <details><summary>だれが作っていますか？</summary><p>個人で開発しています。ご意見やご感想は、<a href="#contact">お問い合わせ</a>からお寄せください。</p></details>
     </div>
@@ -813,11 +932,28 @@ button{font-family:inherit}
   <div class="wrap contact">
     <div class="cbox reveal">
       <h2 id="c-title">お気軽に、<br>ご連絡ください。</h2>
-      <p>アプリについてのご質問、保護団体での使い方、ご意見・ご感想をお待ちしています。</p>
-      <div class="mail"><a href="mailto:animatch.jp@gmail.com">animatch.jp@gmail.com</a><button class="copy" type="button" data-copy="animatch.jp@gmail.com">コピー</button></div>
+      <p>ご用件をえらぶと、書くことのひな形が入ります。</p>
+      <form class="cform" id="cform" onsubmit="return false">
+        <div class="topics" role="group" aria-label="ご用件">
+          <button type="button" data-t="question" aria-pressed="true">アプリについて</button>
+          <button type="button" data-t="org" aria-pressed="false">保護団体の方</button>
+          <button type="button" data-t="hospital" aria-pressed="false">動物病院の方</button>
+          <button type="button" data-t="idea" aria-pressed="false">ご意見・ほしい機能</button>
+          <button type="button" data-t="other" aria-pressed="false">取材・そのほか</button>
+        </div>
+        <label class="lb" for="cmsg">内容</label>
+        <textarea id="cmsg" rows="7"></textarea>
+        <div class="acts">
+          <a class="btn btn-white" id="send-mail" href="mailto:animatch.jp@gmail.com"><svg aria-hidden="true"><use href="#i-mail"/></svg>メールで送る</a>
+          <a class="btn btn-line" id="send-gmail" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=animatch.jp@gmail.com" target="_blank" rel="noopener">Gmailで送る</a>
+        </div>
+        <small>ボタンを押すと、この内容が入ったメールが開きます。このページからは送られません。</small>
+      </form>
+      <div class="mail"><span>あて先</span><a href="mailto:animatch.jp@gmail.com">animatch.jp@gmail.com</a><button class="copy" type="button" data-copy="animatch.jp@gmail.com">コピー</button></div>
       <small>お返事まで、数日いただくことがあります。</small>
       <svg class="animaru happy " viewBox="0 0 200 200" aria-hidden="true"><ellipse cx="100" cy="184" rx="52" ry="7" fill="#000" opacity=".08"/><g class="am-body"><g fill="#4E8A6E"><circle cx="70" cy="58" r="11"/><circle cx="92" cy="48" r="12"/><circle cx="114" cy="50" r="11"/><circle cx="133" cy="60" r="9"/></g><path d="M100 58C140 58 164 88 164 124C164 158 138 178 100 178C62 178 36 158 36 124C36 88 60 58 100 58Z" fill="#E8845A"/><g class="am-arm-l"><ellipse cx="42" cy="112" rx="9" ry="12" transform="rotate(40 42 112)" fill="#E8845A"/></g><g class="am-arm-r"><ellipse cx="158" cy="112" rx="9" ry="12" transform="rotate(-40 158 112)" fill="#E8845A"/></g><ellipse cx="82" cy="178" rx="13" ry="7" fill="#D9744C"/><ellipse cx="118" cy="178" rx="13" ry="7" fill="#D9744C"/><ellipse cx="62" cy="134" rx="9" ry="6" fill="#F9C3A9"/><ellipse cx="138" cy="134" rx="9" ry="6" fill="#F9C3A9"/><g fill="none" stroke="#2E2018" stroke-width="3" stroke-linecap="round"><path d="M75 122Q81 113 87 122"/><path d="M113 122Q119 113 125 122"/></g><path d="M92 133Q100 146 108 133Z" fill="#2E2018"/><ellipse cx="100" cy="140" rx="4" ry="2" fill="#E7737F"/></g></svg>
     </div>
+    <div class="side">
     <div class="info reveal">
       <dl>
         <div><dt>サービス名</dt><dd>AniMatch（アニマッチ）</dd></div>
@@ -827,6 +963,13 @@ button{font-family:inherit}
         <div><dt>お問い合わせ</dt><dd>animatch.jp@gmail.com</dd></div>
       </dl>
     </div>
+    <div class="sns reveal">
+      <h3>SNSでも、お知らせしています</h3>
+      <p>開発のようすや、公開のお知らせを出しています。</p>
+      <a href="https://www.threads.com/@animatch_jp" target="_blank" rel="noopener"><svg class="lg" aria-hidden="true"><use href="#i-threads"/></svg><span><b>Threads</b>@animatch_jp</span><svg class="ar" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <a href="https://www.instagram.com/animatch_jp/" target="_blank" rel="noopener"><svg class="lg" aria-hidden="true"><use href="#i-insta"/></svg><span><b>Instagram</b>@animatch_jp</span><svg class="ar" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    </div>
+    </div>
   </div>
 </section>
 
@@ -835,10 +978,11 @@ button{font-family:inherit}
 <footer class="site-footer">
   <div class="wrap">
     <div class="top">
-      <div class="brand"><img src="assets/logo.png" alt="AniMatch" width="681" height="126"><p>動物好きのコミュニティアプリ｜2027年2月公開予定</p></div>
+      <div class="brand"><img src="assets/logo.png" alt="AniMatch" width="681" height="126"><p>動物好きのコミュニティアプリ｜2027年2月公開予定</p>
+        <div class="fsns"><a href="https://www.threads.com/@animatch_jp" target="_blank" rel="noopener" aria-label="Threads"><svg aria-hidden="true"><use href="#i-threads"/></svg></a><a href="https://www.instagram.com/animatch_jp/" target="_blank" rel="noopener" aria-label="Instagram"><svg aria-hidden="true"><use href="#i-insta"/></svg></a></div></div>
       <nav class="fnav" aria-label="フッター">
         <div><b>アプリ</b><a href="#features">できること</a><a href="#demo">使い方</a><a href="#safety">安心のしくみ</a><a href="#news">お知らせ</a></div>
-        <div><b>サポート</b><a href="#faq">よくある質問</a><a href="#contact">お問い合わせ</a><a href="#orgs-plan">保護団体の方へ</a></div>
+        <div><b>サポート</b><a href="#faq">よくある質問</a><a href="#contact">お問い合わせ</a><a href="#partners">保護団体・動物病院の方へ</a></div>
         <div><b>きまり</b><a href="terms.html">利用規約</a><a href="https://animatch-jp.github.io/animatch-privacy/">プライバシーポリシー</a></div>
       </nav>
     </div>
@@ -911,6 +1055,37 @@ button{font-family:inherit}
     var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');if(e.target.id==='rec')e.target.classList.add('on');io.unobserve(e.target)}})},{rootMargin:'0px 0px -60px 0px'});
     els.forEach(function(el){io.observe(el)});
   }else{els.forEach(function(el){el.classList.add('in')});document.getElementById('rec').classList.add('on')}
+
+
+  /* お問い合わせ：ご用件をえらぶと、ひな形が入る */
+  var MAIL='animatch.jp@gmail.com';
+  var T={
+    question:{s:'アプリについての質問',b:'知りたいこと：\n'},
+    org:{s:'保護団体の方から',b:'団体名：\n活動している都道府県：\nホームページやSNS：\nご相談したいこと：\n'},
+    hospital:{s:'動物病院の方から',b:'病院名：\nある都道府県：\nご相談したいこと：\n'},
+    idea:{s:'ご意見・ほしい機能',b:'ほしい機能・ご意見：\n'},
+    other:{s:'取材・そのほか',b:'会社名・お名前：\nご用件：\n'}
+  };
+  var msg=document.getElementById('cmsg'),tb=[].slice.call(document.querySelectorAll('.cform .topics button')),cur='question';
+  function sync(){
+    var su='【AniMatch】'+T[cur].s,bo=msg.value+'\n\n――\nAniMatchのホームページから';
+    document.getElementById('send-mail').href='mailto:'+MAIL+'?subject='+encodeURIComponent(su)+'&body='+encodeURIComponent(bo);
+    document.getElementById('send-gmail').href='https://mail.google.com/mail/?view=cm&fs=1&to='+MAIL+'&su='+encodeURIComponent(su)+'&body='+encodeURIComponent(bo);
+  }
+  function pick(t){
+    if(!msg.value.trim()||msg.value===T[cur].b)msg.value=T[t].b;
+    cur=t;tb.forEach(function(b){b.setAttribute('aria-pressed',b.getAttribute('data-t')===t)});sync();
+  }
+  tb.forEach(function(b){b.addEventListener('click',function(){pick(b.getAttribute('data-t'))})});
+  msg.addEventListener('input',sync);
+  msg.value=T.question.b;sync();
+  document.querySelectorAll('[data-topic]').forEach(function(b){
+    b.addEventListener('click',function(){
+      pick(b.getAttribute('data-topic'));
+      document.getElementById('contact').scrollIntoView({behavior:reduce?'auto':'smooth'});
+      setTimeout(function(){msg.focus({preventScroll:true});var n=msg.value.indexOf('\n');if(n>0)msg.setSelectionRange(n,n)},reduce?0:700);
+    });
+  });
 
   /* メールのコピー */
   document.querySelectorAll('.copy').forEach(function(b){
