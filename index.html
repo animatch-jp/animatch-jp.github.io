@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AniMatch｜動物が好きな人の、あたたかい広場（2027年2月公開予定）</title>
+<title>AniMatch（アニマッチ）｜動物好きのコミュニティアプリ｜2027年2月公開予定</title>
 <meta name="description" content="AniMatchは、保護されている動物や保護団体の活動と、動物と暮らす人・動物好きの人をつなぐ、動物好きのコミュニティアプリです。2027年2月公開予定。">
-<meta name="theme-color" content="#FFF8F5">
+<meta name="theme-color" content="#FFFFFF">
 <link rel="canonical" href="https://animatch-jp.github.io/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="AniMatch">
-<meta property="og:title" content="AniMatch｜動物が好きな人の、あたたかい広場">
+<meta property="og:title" content="AniMatch｜動物好きのコミュニティアプリ">
 <meta property="og:description" content="保護されている動物や保護団体の活動と、動物と暮らす人・動物好きの人をつなぐ、動物好きのコミュニティアプリ。2027年2月公開予定。">
 <meta property="og:url" content="https://animatch-jp.github.io/">
 <meta property="og:image" content="https://animatch-jp.github.io/assets/og.png">
@@ -17,499 +17,907 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preload" as="image" href="assets/photos/w/cat.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
 :root{
-  --cream:#FFF8F5; --paper:#FFFFFF; --peach:#FBE3D6; --mint:#E3F0E8;
-  --orange:#E8845A; --orange-d:#C9673F; --green:#2E6A50; --green-l:#52B788;
-  --ink:#3D2B1F; --sub:#7A6556; --line:#F0E2D9;
-  --round:"Zen Maru Gothic","Hiragino Maru Gothic ProN","Noto Sans JP",sans-serif;
-  --sans:"Noto Sans JP","Hiragino Kaku Gothic ProN","Noto Sans CJK JP",sans-serif;
+  --ink:#1D2420; --ink-2:#4F5753; --ink-3:#8A918D;
+  --line:#ECE8E3; --surface:#F7F5F2; --white:#fff;
+  --orange:#E8845A; --orange-d:#CC6A40; --peach:#FDEEE6;
+  --green:#2E6A50; --green-2:#52B788; --mint:#E6F2EC;
+  --sun:#F5B82E;
+  --app-bg:#FFF8F5; --app-ink:#3D2B1F;
+  --font:"Noto Sans JP","Hiragino Kaku Gothic ProN","Hiragino Sans",Meiryo,sans-serif;
+  --ease:cubic-bezier(.22,.8,.24,1);
+  --r-xl:32px; --r-lg:24px; --r-md:16px;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:72px}
-body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--sans);line-height:1.85;font-size:16px;-webkit-text-size-adjust:100%}
-img{max-width:100%;display:block}
+html{scroll-behavior:smooth;scroll-padding-top:88px}
+body{margin:0;font-family:var(--font);color:var(--ink);background:var(--white);font-size:16px;line-height:1.85;letter-spacing:.02em;-webkit-text-size-adjust:100%;font-feature-settings:"palt" 1;overflow-x:hidden}
+img{display:block;max-width:100%}
 a{color:var(--green)}
-.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
-h1,h2,h3{font-family:var(--round);line-height:1.4;margin:0;word-break:auto-phrase}
-.skip{position:absolute;left:-999px}
-.skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:99}
+h1,h2,h3,p{margin:0}
+h1,h2,h3{word-break:auto-phrase}
+button{font-family:inherit}
+.wrap{width:min(1180px,100% - 48px);margin-inline:auto}
+:focus-visible{outline:3px solid var(--orange);outline-offset:3px;border-radius:8px}
+.skip{position:absolute;left:-999px}.skip:focus{left:12px;top:12px;z-index:99;background:#fff;padding:8px 12px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
-/* header */
-header{position:sticky;top:0;z-index:20;background:rgba(255,248,245,.92);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid transparent;transition:border-color .2s}
-header.scrolled{border-color:var(--line)}
-.bar{display:flex;align-items:center;justify-content:space-between;height:64px}
-.bar .logo img{height:30px;width:auto}
-nav ul{list-style:none;display:flex;gap:22px;margin:0;padding:0;font-size:14px;font-weight:500}
-nav a{color:var(--ink);text-decoration:none}
-nav a:hover{color:var(--orange-d)}
-.nav-cta{background:var(--green);color:#fff!important;padding:8px 16px;border-radius:999px}
-.nav-cta:hover{background:#245640}
-@media (max-width:820px){nav ul li:not(.keep){display:none}}
+/* ===== ガラス ===== */
+.glass{background:rgba(255,255,255,.62);backdrop-filter:blur(18px) saturate(180%);-webkit-backdrop-filter:blur(18px) saturate(180%);border:1px solid rgba(255,255,255,.7);box-shadow:0 1px 0 rgba(255,255,255,.8) inset,0 12px 32px -12px rgba(29,36,32,.22)}
 
-/* hero */
-.hero{position:relative;overflow:hidden;padding:56px 0 72px}
-.hero::before,.hero::after{content:"";position:absolute;border-radius:50%;z-index:0}
-.hero::before{width:520px;height:520px;background:var(--peach);right:-160px;top:-120px}
-.hero::after{width:300px;height:300px;background:var(--mint);left:-120px;bottom:-140px}
-.hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
-.badge{display:inline-flex;align-items:center;gap:8px;background:var(--green);color:#fff;font-weight:700;font-size:14px;padding:6px 16px;border-radius:999px;font-family:var(--round)}
-.badge svg{width:16px;height:16px}
-.hero h1{font-size:clamp(32px,5.2vw,54px);font-weight:900;margin:18px 0 18px;letter-spacing:.02em}
-.hero h1 .hl{color:var(--orange-d);white-space:nowrap}
-.hero p.lead{font-size:clamp(16px,1.8vw,18px);color:var(--sub);margin:0 0 28px;max-width:30em}
-.btns{display:flex;flex-wrap:wrap;gap:12px}
-.btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:700;padding:13px 22px;border-radius:999px;font-family:var(--round);font-size:16px;transition:transform .15s}
-.btn:hover{transform:translateY(-2px)}
-.btn.primary{background:var(--orange);color:#fff;box-shadow:0 6px 18px rgba(232,132,90,.35)}
-.btn.ghost{background:#fff;color:var(--green);border:2px solid var(--green)}
-.hero-art{display:flex;justify-content:center}
-@media (max-width:820px){
-  .hero{padding:36px 0 56px}
-  .hero .wrap{grid-template-columns:1fr;gap:36px}
+/* ===== ヘッダー ===== */
+.site-header{position:fixed;top:12px;left:0;right:0;z-index:50;pointer-events:none}
+.site-header .bar{pointer-events:auto;display:flex;align-items:center;justify-content:space-between;gap:20px;height:64px;padding:0 10px 0 22px;border-radius:20px;transition:box-shadow .3s,background .3s}
+.site-header .logo img{height:28px;width:auto}
+.gnav ul{list-style:none;display:flex;align-items:center;gap:4px;margin:0;padding:0}
+.gnav a{display:block;color:var(--ink);text-decoration:none;font-size:14px;font-weight:500;padding:8px 14px;border-radius:10px;transition:background .2s}
+.gnav a:hover{background:rgba(29,36,32,.06)}
+.gnav .cta a{background:var(--ink);color:#fff;font-weight:700;padding:10px 18px;margin-left:6px}
+.gnav .cta a:hover{background:#000}
+.menu-btn{display:none;width:44px;height:44px;border:0;background:none;border-radius:12px;cursor:pointer}
+.menu-btn span{display:block;width:20px;height:2px;margin:4px auto;background:var(--ink);border-radius:2px;transition:transform .25s var(--ease),opacity .2s}
+@media (max-width:960px){
+  .site-header{top:8px}
+  .site-header .bar{height:56px;padding:0 6px 0 16px}
+  .site-header .logo img{height:22px}
+  .menu-btn{display:block}
+  .gnav{position:absolute;left:12px;right:12px;top:64px;border-radius:18px;padding:8px;display:none}
+  .gnav.open{display:block}
+  .gnav ul{flex-direction:column;align-items:stretch}
+  .gnav a{padding:14px 16px;font-size:15px}
+  .gnav .cta a{margin:6px 0 0;text-align:center}
+  .menu-btn[aria-expanded="true"] span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+  .menu-btn[aria-expanded="true"] span:nth-child(2){opacity:0}
+  .menu-btn[aria-expanded="true"] span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
 }
 
-/* phone mockups */
-.phone{width:248px;flex:0 0 auto;background:#2b211b;border-radius:38px;padding:10px;box-shadow:0 24px 48px rgba(61,43,31,.18)}
-.screen{background:var(--cream);border-radius:30px;overflow:hidden;height:500px;display:flex;flex-direction:column;font-size:11px;line-height:1.5}
-.notch{height:22px;display:flex;justify-content:center;align-items:flex-start}
-.notch i{width:70px;height:16px;background:#2b211b;border-radius:0 0 12px 12px}
-.app-top{padding:4px 14px 8px;display:flex;justify-content:space-between;align-items:center}
-.app-top b{font-family:var(--round);font-size:15px}
-.app-body{flex:1;padding:0 12px;overflow:hidden}
-.tabs{display:flex;gap:6px;margin-bottom:10px;flex-wrap:nowrap;overflow:hidden}
-.tabs span{white-space:nowrap;flex:0 0 auto;background:#fff;border:1px solid var(--line);border-radius:999px;padding:2px 9px;color:var(--sub);font-size:10px}
-.tabs span.on{background:var(--orange);color:#fff;border-color:var(--orange)}
-.post{background:#fff;border-radius:16px;overflow:hidden;margin-bottom:10px;box-shadow:0 2px 6px rgba(0,0,0,.04)}
-.post .who{display:flex;align-items:center;gap:6px;padding:8px 10px;font-weight:700}
-.post .who em{width:20px;height:20px;border-radius:50%;background:var(--peach);display:block}
-.pic{height:150px;display:flex;align-items:center;justify-content:center}
-.pic svg{width:96px;height:96px}
-.p1{background:linear-gradient(135deg,#FCE7DA,#F7CDB5)}
-.p2{background:linear-gradient(135deg,#E3F0E8,#C3E2D0)}
-.p3{background:linear-gradient(135deg,#FFF1D6,#F9DDA6)}
-.p4{background:linear-gradient(135deg,#E8E7F7,#CFCDEE)}
-.reacts{display:flex;gap:6px;padding:8px 10px}
-.reacts span{white-space:nowrap;background:var(--cream);border-radius:999px;padding:2px 8px;font-size:10px;color:var(--orange-d);font-weight:700}
-.navbar{display:flex;justify-content:space-around;padding:8px 6px 14px;background:#fff;border-top:1px solid var(--line)}
-.navbar i{width:22px;height:22px;border-radius:8px;background:var(--line);display:block}
-.navbar i.on{background:var(--orange)}
-.podium{display:flex;align-items:flex-end;justify-content:center;gap:6px;margin:14px 0 12px}
-.podium div{width:62px;text-align:center}
-.podium .face{width:52px;height:52px;border-radius:50%;margin:0 auto 4px;display:flex;align-items:center;justify-content:center}
-.podium .face svg{width:38px;height:38px}
-.podium .stand{border-radius:10px 10px 0 0;color:#fff;font-family:var(--round);font-weight:900;font-size:16px;display:flex;align-items:flex-start;justify-content:center;padding-top:4px}
-.s1{height:70px;background:var(--orange)} .s2{height:50px;background:var(--green-l)} .s3{height:38px;background:#E9B872}
-.rank-list div{display:flex;align-items:center;gap:8px;background:#fff;border-radius:12px;padding:7px 10px;margin-bottom:6px}
-.rank-list b{font-family:var(--round);color:var(--sub);width:14px}
-.rank-list em{width:26px;height:26px;border-radius:50%;display:block}
-.search{background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 12px;color:#B8A598;margin-bottom:8px;display:flex;gap:6px;align-items:center}
-.search svg{width:12px;height:12px}
-.map{height:120px;border-radius:14px;background:
-  radial-gradient(circle at 30% 40%,#cfe6d6 0 18%,transparent 19%),
-  radial-gradient(circle at 70% 65%,#d9ecdf 0 22%,transparent 23%),
-  linear-gradient(135deg,#eef6f0,#e1efe6);position:relative;margin-bottom:10px}
-.map i{position:absolute;width:14px;height:14px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);border:2px solid #fff}
-.item{display:flex;gap:8px;align-items:center;background:#fff;border-radius:12px;padding:8px 10px;margin-bottom:6px}
-.item .tag{font-size:9px;font-weight:700;color:#fff;border-radius:6px;padding:1px 6px;flex:0 0 auto}
-.t-a{background:var(--orange)} .t-b{background:#D9534F} .t-c{background:var(--green)} .t-d{background:#6C8EBF}
-.item span:last-child{color:var(--ink)}
-.rec-card{background:#fff;border-radius:14px;padding:10px;margin-bottom:8px}
-.rec-card b{font-family:var(--round);font-size:12px}
-.rec-card svg{width:100%;height:80px;margin-top:4px}
-.next{display:flex;justify-content:space-between;align-items:center;background:#fff;border-left:4px solid var(--orange);border-radius:10px;padding:8px 10px;margin-bottom:6px}
-.next small{color:var(--sub)}
+/* ===== ボタン ===== */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;font-weight:700;border-radius:999px;border:0;cursor:pointer;transition:transform .25s var(--ease),box-shadow .25s var(--ease),background .2s}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:var(--orange);color:#fff;font-size:16px;padding:17px 30px;box-shadow:0 10px 24px -10px rgba(232,132,90,.9)}
+.btn-primary:hover{background:var(--orange-d);transform:translateY(-2px);box-shadow:0 16px 30px -12px rgba(232,132,90,.95)}
+.btn-ghost{background:#fff;color:var(--ink);font-size:16px;padding:16px 28px;box-shadow:0 0 0 1.5px var(--line) inset}
+.btn-ghost:hover{box-shadow:0 0 0 1.5px var(--ink) inset;transform:translateY(-2px)}
+.btn svg{width:18px;height:18px}
 
-/* screens section */
-section{padding:80px 0}
-.sec-head{text-align:center;margin-bottom:44px}
-.kicker{display:inline-block;font-family:var(--round);font-weight:700;color:var(--orange-d);font-size:14px;letter-spacing:.1em;margin-bottom:6px}
-.sec-head h2{font-size:clamp(26px,3.6vw,36px);font-weight:900}
-.sec-head p{color:var(--sub);margin:12px auto 0;max-width:36em}
-.screens{background:#fff}
-.phones{display:flex;gap:28px;justify-content:center;flex-wrap:wrap}
-.phones figure{margin:0;display:flex;flex-direction:column;align-items:center;gap:14px}
-.phones figcaption{font-family:var(--round);font-weight:700}
-.note{text-align:center;color:var(--sub);font-size:13px;margin-top:28px}
-@media (max-width:820px){
-  .phones{flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 20px 24px;margin:0 -20px;-webkit-overflow-scrolling:touch}
-  .phones figure{scroll-snap-align:center}
+/* ===== ファーストビュー ===== */
+.hero{position:relative;padding:150px 0 110px;overflow:hidden}
+.hero::before{content:"";position:absolute;right:-12%;top:-10%;width:62vw;max-width:900px;aspect-ratio:1;border-radius:50%;background:radial-gradient(closest-side,#FFE7D9,rgba(255,231,217,0) 70%);z-index:-1}
+.hero::after{content:"";position:absolute;left:-14%;bottom:-30%;width:46vw;max-width:640px;aspect-ratio:1;border-radius:50%;background:radial-gradient(closest-side,#E4F2EA,rgba(228,242,234,0) 70%);z-index:-1}
+.hero .wrap{display:grid;grid-template-columns:1.12fr .88fr;gap:40px;align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:14px;font-weight:700;color:var(--ink-2);padding:6px 14px 6px 6px;border-radius:999px;background:#fff;box-shadow:0 0 0 1px var(--line) inset}
+.eyebrow b{background:var(--green);color:#fff;border-radius:999px;padding:3px 12px;font-size:13px}
+.hero h1{font-size:clamp(42px,6.6vw,92px);font-weight:900;line-height:1.16;letter-spacing:-.01em;margin:26px 0 26px}
+.hero h1 .line{display:block;white-space:nowrap}
+.roll{display:inline-block;position:relative;height:1.16em;overflow:hidden;vertical-align:top;transition:width .6s var(--ease)}
+.roll .track{display:block;transition:transform .7s var(--ease)}
+.roll .track span{display:block;height:1.16em;width:max-content;color:var(--orange)}
+.hero .lead{font-size:clamp(16px,1.5vw,18px);color:var(--ink-2);max-width:30em;font-weight:500}
+.hero .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
+.hero .meta{display:flex;gap:22px;flex-wrap:wrap;margin-top:34px;font-size:14px;color:var(--ink-3)}
+.hero .meta span{display:flex;align-items:center;gap:8px}
+.hero .meta svg{width:18px;height:18px;color:var(--green)}
+
+.stage{position:relative;display:flex;justify-content:center;padding:20px 0 40px}
+.float{position:absolute;z-index:4;border-radius:18px;padding:12px 16px;display:flex;align-items:center;gap:12px;font-size:13px;line-height:1.45;animation:float 6s ease-in-out infinite}
+.float img{width:40px;height:40px;border-radius:12px;object-fit:cover}
+.float b{display:block;font-size:14px}
+.float small{color:var(--ink-2)}
+.float.f1{left:-14%;top:47%}
+.float.f2{right:-3%;top:58%;animation-delay:-3s}
+@keyframes float{50%{transform:translateY(-8px)}}
+.hero-mascot{position:absolute;right:calc(50% + 136px);bottom:6px;z-index:5;display:flex;flex-direction:column-reverse;align-items:flex-end}
+.hero-mascot .animaru{width:118px;height:118px}
+.hero-mascot .bubble{margin:0 34px -4px 0}
+.hero-mascot .bubble::after{left:auto;right:26px;bottom:-6px;box-shadow:1px 1px 0 var(--line)}
+@media (max-width:960px){
+  .hero{padding:110px 0 40px}
+  .hero .wrap{grid-template-columns:1fr;gap:28px}
+  .hero h1 .line{white-space:normal}
+  .float{display:none}
+  .stage{flex-direction:column;align-items:center;padding-bottom:0}
+  .hero-mascot{position:relative;right:auto;bottom:auto;flex-direction:row;align-items:center;gap:6px;margin-top:-18px}
+  .hero-mascot .animaru{width:92px;height:92px}
+  .hero-mascot .bubble{margin:0}
+  .hero-mascot .bubble::after{left:-6px;right:auto;bottom:auto;top:50%;margin-top:-6px;box-shadow:-1px 1px 0 var(--line)}
 }
 
-/* features */
-.groups{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
-.group{background:#fff;border-radius:24px;padding:28px 26px;box-shadow:0 4px 16px rgba(61,43,31,.05)}
-.group h3{display:flex;align-items:center;gap:12px;font-size:21px;margin-bottom:16px}
-.group h3 .ic{width:44px;height:44px;border-radius:14px;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
-.group h3 .ic svg{width:24px;height:24px}
-.ic.o{background:var(--peach);color:var(--orange-d)} .ic.g{background:var(--mint);color:var(--green)}
-.ic.y{background:#FFF1D6;color:#B07A1E} .ic.p{background:#E8E7F7;color:#5B57A6}
-.group ul{list-style:none;margin:0;padding:0}
-.group li{padding:10px 0 10px 26px;border-top:1px dashed var(--line);position:relative}
-.group li:first-child{border-top:0}
-.group li::before{content:"";position:absolute;left:4px;top:19px;width:10px;height:10px;border-radius:50%;background:var(--orange);opacity:.7}
-.group li b{display:block;font-family:var(--round);font-size:16px}
-.group li span{color:var(--sub);font-size:15px}
-@media (max-width:820px){.groups{grid-template-columns:1fr}}
+/* ===== スマホの画面（アプリと同じつくり） ===== */
+.phone{position:relative;width:min(320px,80vw);aspect-ratio:9/19;border-radius:52px;padding:10px;background:#111613;box-shadow:0 0 0 2px #2b332f inset,0 60px 90px -40px rgba(29,36,32,.55),0 24px 40px -24px rgba(29,36,32,.35)}
+.phone::after{content:"";position:absolute;top:22px;left:50%;transform:translateX(-50%);width:96px;height:28px;border-radius:20px;background:#000;z-index:3}
+.screen{position:relative;width:100%;height:100%;border-radius:42px;overflow:hidden;background:var(--app-bg);color:var(--app-ink);font-size:12px;line-height:1.5;display:flex;flex-direction:column}
+.status{height:44px;flex:0 0 auto;display:flex;justify-content:space-between;align-items:flex-end;padding:0 26px 4px;font-size:12px;font-weight:700}
+.status i{display:inline-flex;gap:4px;align-items:center}
+.status svg{width:15px;height:15px}
+.app{flex:1;overflow:hidden;position:relative}
+.view{position:absolute;inset:0;padding:6px 14px 0;transition:opacity .45s var(--ease),transform .45s var(--ease)}
+.view[hidden]{display:block;opacity:0;transform:translateY(10px);pointer-events:none}
+.app-top{display:flex;justify-content:space-between;align-items:center;margin:4px 2px 10px}
+.app-top small{display:block;color:#888;font-size:11px}
+.app-top b{display:block;font-size:21px;font-weight:900;letter-spacing:0}
+.round{width:36px;height:36px;border-radius:50%;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.1);display:grid;place-items:center;font-size:16px}
+.memory{display:flex;gap:10px;align-items:center;border-radius:16px;padding:10px;background:linear-gradient(90deg,#FFF1E6,#FFE4EC);margin-bottom:10px}
+.memory img{width:46px;height:46px;border-radius:10px;object-fit:cover;box-shadow:0 3px 6px rgba(0,0,0,.08)}
+.memory b{display:block;font-size:12.5px;font-weight:900}
+.memory small{color:#B4642E;font-weight:700;font-size:10.5px}
+.tabs-app{display:flex;gap:6px;margin-bottom:10px;white-space:nowrap;overflow:hidden}
+.tabs-app span{padding:4px 11px;border-radius:999px;background:#fff;color:#888;font-size:11px;font-weight:700;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.tabs-app span.on{background:var(--orange);color:#fff}
+.post{background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 3px 10px rgba(0,0,0,.06)}
+.post-head{display:flex;align-items:center;gap:8px;padding:9px 11px}
+.post-head img{width:26px;height:26px;border-radius:50%;object-fit:cover}
+.post-head b{font-size:12.5px;font-weight:900;display:block;line-height:1.2}
+.post-head small{font-size:10px;color:#999}
+.post-pic{position:relative;aspect-ratio:1/1;overflow:hidden;background:#eee}
+.post-pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .6s var(--ease)}
+.post-pic img.on{opacity:1}
+.post-pic .kind{position:absolute;left:10px;top:10px;font-size:10.5px;font-weight:700;color:#fff;background:rgba(0,0,0,.45);padding:2px 9px;border-radius:999px;backdrop-filter:blur(6px)}
+.reacts{display:flex;gap:6px;padding:9px 10px 11px}
+.reacts button{flex:1;border:0;border-radius:12px;background:#FFF3EC;color:var(--orange-d);font-size:11px;font-weight:700;padding:6px 0;cursor:pointer;transition:transform .2s var(--ease),background .2s,color .2s}
+.reacts button:hover{transform:translateY(-1px)}
+.reacts button[aria-pressed="true"]{background:var(--orange);color:#fff;animation:pop .35s var(--ease)}
+@keyframes pop{50%{transform:scale(1.1)}}
+.appnav{flex:0 0 auto;display:flex;justify-content:space-around;background:#fff;padding:8px 6px 18px;box-shadow:0 -5px 20px rgba(232,132,90,.1)}
+.appnav span{flex:1;display:flex;flex-direction:column;align-items:center;gap:1px;font-size:8px;font-weight:700;color:#B9B2AD;white-space:nowrap;letter-spacing:-.03em}
+.appnav span.on{color:var(--orange)}
+.appnav svg{width:21px;height:21px}
+/* どうぶつマップの画面 */
+.search-app{display:flex;align-items:center;gap:7px;background:#fff;border-radius:12px;padding:8px 11px;color:#aaa;font-size:11.5px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.search-app svg{width:13px;height:13px}
+.chips-app{display:flex;gap:6px;margin-bottom:10px;white-space:nowrap;overflow:hidden}
+.chips-app span{padding:4px 10px;border-radius:999px;background:#fff;font-size:10.5px;font-weight:700;color:#777}
+.chips-app span.on{background:var(--green);color:#fff}
+.grid-app{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.tile-app{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,.06)}
+.tile-app .pic{position:relative;aspect-ratio:1/1}
+.tile-app .pic img{width:100%;height:100%;object-fit:cover}
+.tile-app .pic em{position:absolute;left:6px;top:6px;font-style:normal;font-size:9px;font-weight:700;color:#fff;padding:2px 7px;border-radius:8px}
+.tile-app b{display:block;font-size:11px;font-weight:900;padding:6px 8px 0}
+.tile-app small{display:block;font-size:9.5px;color:#888;padding:0 8px 7px}
+.c-ad{background:#F39C12}.c-lost{background:#3498DB}.c-org{background:var(--green)}.c-vol{background:var(--orange)}
+/* 団体のお知らせの画面 */
+.org-head{display:flex;align-items:center;gap:10px;background:#fff;border-radius:14px;padding:10px;margin-bottom:10px}
+.org-head .ava{width:38px;height:38px;border-radius:50%;background:var(--mint);display:grid;place-items:center;color:var(--green);font-weight:900}
+.org-head b{display:block;font-size:12.5px;font-weight:900}
+.org-head small{font-size:10px;color:#888}
+.compose{background:#fff;border-radius:16px;padding:12px;box-shadow:0 3px 10px rgba(0,0,0,.06)}
+.compose .kinds{display:flex;gap:5px;margin-bottom:9px;flex-wrap:wrap}
+.compose .kinds span{font-size:10px;font-weight:700;padding:3px 9px;border-radius:999px;background:#F2F2F2;color:#777}
+.compose .kinds span.on{background:var(--green);color:#fff}
+.compose .field{border:1px solid #eee;border-radius:10px;padding:8px 10px;font-size:11.5px;color:#333;margin-bottom:8px;min-height:62px}
+.compose .photo{border-radius:10px;overflow:hidden;aspect-ratio:16/10;margin-bottom:9px}
+.compose .photo img{width:100%;height:100%;object-fit:cover}
+.compose .send{display:block;text-align:center;background:var(--green);color:#fff;font-weight:900;border-radius:12px;padding:8px;font-size:12px}
+.compose .share{display:block;text-align:center;color:var(--green);font-weight:700;font-size:11px;margin-top:6px}
 
-/* safety */
-.safety{background:var(--mint)}
-.safe-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.safe{background:#fff;border-radius:20px;padding:22px}
-.safe svg{width:30px;height:30px;color:var(--green);margin-bottom:8px}
-.safe b{display:block;font-family:var(--round);font-size:17px;margin-bottom:4px}
-.safe p{margin:0;color:var(--sub);font-size:15px}
-@media (max-width:820px){.safe-grid{grid-template-columns:1fr}}
+/* ===== セクション共通 ===== */
+.section{padding:120px 0}
+.section.tint{background:var(--surface)}
+.head{max-width:760px;margin:0 auto 60px;text-align:center}
+.head .kicker{display:inline-block;font-size:14px;font-weight:700;color:var(--orange-d);margin-bottom:12px}
+.head h2{font-size:clamp(30px,4vw,52px);font-weight:900;line-height:1.3;letter-spacing:-.005em}
+.head p{color:var(--ink-2);font-size:17px;margin-top:18px}
+@media (max-width:960px){.section{padding:84px 0}.head{margin-bottom:40px}}
 
-/* orgs */
-.orgs .box{background:linear-gradient(135deg,var(--green),#3E8566);color:#fff;border-radius:32px;padding:48px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;position:relative;overflow:hidden}
-.orgs .box::after{content:"";position:absolute;width:280px;height:280px;border-radius:50%;background:rgba(255,255,255,.07);right:-80px;bottom:-110px}
-.orgs .kicker{color:#CDEBD9}
-.orgs h2{font-size:clamp(26px,3.4vw,34px);font-weight:900;margin:6px 0 14px}
-.orgs p{margin:0 0 22px;color:#E4F2EA}
-.orgs ul{list-style:none;padding:0;margin:0;display:grid;gap:12px;position:relative;z-index:1}
-.orgs li{background:rgba(255,255,255,.12);border-radius:16px;padding:14px 16px 14px 48px;position:relative}
-.orgs li svg{position:absolute;left:16px;top:16px;width:20px;height:20px;color:#FFD9C6}
-.orgs li b{display:block;font-family:var(--round)}
-.orgs li span{font-size:14px;color:#E4F2EA}
-.btn.light{background:#fff;color:var(--green)}
-@media (max-width:820px){.orgs .box{grid-template-columns:1fr;padding:32px 22px;border-radius:24px}}
+/* ===== 弁当箱 ===== */
+.bento{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
+.cell{position:relative;border-radius:var(--r-lg);background:#fff;overflow:hidden;isolation:isolate;box-shadow:0 0 0 1px var(--line) inset;transition:transform .45s var(--ease),box-shadow .45s var(--ease)}
+.cell::after{content:"";position:absolute;inset:0;border-radius:inherit;padding:1.5px;background:linear-gradient(135deg,var(--orange),var(--sun) 45%,var(--green-2));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:opacity .45s var(--ease);pointer-events:none;z-index:5}
+.cell:hover{transform:translateY(-6px);box-shadow:0 0 0 1px transparent inset,0 30px 60px -30px rgba(29,36,32,.35)}
+.cell:hover::after{opacity:1}
+.cell .txt{position:relative;z-index:2;padding:28px 28px 0}
+.cell h3{font-size:22px;font-weight:900;line-height:1.4;margin-bottom:8px}
+.cell p{font-size:15px;color:var(--ink-2)}
+.cell .label{display:inline-block;font-size:12px;font-weight:700;color:var(--orange-d);background:var(--peach);padding:3px 10px;border-radius:999px;margin-bottom:12px}
+/* 配置 */
+.c1{grid-column:span 7;grid-row:span 2;min-height:560px;color:#fff;background:#222}
+.c2{grid-column:span 5;grid-row:span 2;background:linear-gradient(180deg,#FFFBF3,#fff)}
+.c3{grid-column:span 4;background:linear-gradient(180deg,#FFF1E6,#FFE7EE)}
+.c4{grid-column:span 4}
+.c5{grid-column:span 4;background:var(--mint);margin-top:28px}
+.c6{grid-column:span 8;background:#fff}
+.c7{grid-column:span 4;background:linear-gradient(180deg,#EEF4FF,#fff)}
+/* c1 ペット自慢（写真の上にガラス） */
+.c1 .bg{position:absolute;inset:0;z-index:0}
+.c1 .bg img{width:100%;height:100%;object-fit:cover;object-position:50% 22%;transition:transform 1.2s var(--ease)}
+.c1:hover .bg img{transform:scale(1.04)}
+.c1::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.45),rgba(0,0,0,0) 38%,rgba(0,0,0,0) 60%,rgba(0,0,0,.35));z-index:1}
+.c1 .txt p{color:rgba(255,255,255,.9)}
+.c1 .label{background:rgba(255,255,255,.2);color:#fff;backdrop-filter:blur(8px)}
+.c1 .card{position:absolute;left:24px;right:24px;bottom:24px;z-index:2;border-radius:20px;padding:14px;display:flex;align-items:center;gap:12px;color:var(--ink)}
+.c1 .card img{width:48px;height:48px;border-radius:14px;object-fit:cover}
+.c1 .card .who{flex:1;min-width:0}
+.c1 .card b{display:block;font-size:15px}
+.c1 .card small{color:var(--ink-2);font-size:12.5px}
+.c1 .card .reacts{padding:0;gap:6px;flex:0 0 auto}
+.c1 .card .reacts button{flex:0 0 auto;padding:8px 12px;font-size:12.5px;border-radius:12px;white-space:nowrap}
+/* c2 ランキング */
+.kinds-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.kinds-row button{border:0;cursor:pointer;font-size:13px;font-weight:700;padding:6px 13px;border-radius:999px;background:#fff;color:var(--ink-2);box-shadow:0 0 0 1px var(--line) inset;transition:background .2s,color .2s}
+.kinds-row button[aria-pressed="true"]{background:var(--ink);color:#fff;box-shadow:none}
+.c2{display:flex;flex-direction:column}
+.podium{margin-top:auto;padding:28px 28px 0;display:flex;align-items:flex-end;justify-content:center;gap:14px}
+.podium .p{flex:1;max-width:120px;text-align:center}
+.podium .face{width:84px;height:84px;margin:0 auto 10px;border-radius:50%;overflow:hidden;border:4px solid #fff;box-shadow:0 10px 20px -8px rgba(0,0,0,.3)}
+.podium .p1 .face{width:104px;height:104px}
+.podium .face img{width:100%;height:100%;object-fit:cover;transition:opacity .35s}
+.podium .stand{border-radius:16px 16px 0 0;color:#fff;font-weight:900;font-size:24px;padding-top:6px}
+.p1 .stand{height:150px;background:linear-gradient(180deg,var(--orange),#F4A261)}
+.p2 .stand{height:110px;background:linear-gradient(180deg,var(--green-2),#8FD0A8)}
+.p3 .stand{height:84px;background:linear-gradient(180deg,var(--sun),#F9D67A)}
+.podium .nm{font-size:13px;font-weight:700;margin-bottom:4px;color:var(--ink)}
+.c2 .txt{padding-bottom:0}
+/* c3 思い出の日 */
+.c3 .pola{position:relative;margin:18px auto 26px;width:62%;background:#fff;padding:9px 9px 12px;border-radius:10px;transform:rotate(-4deg);box-shadow:0 18px 30px -16px rgba(0,0,0,.35)}
+.c3 .pola img{aspect-ratio:1/1;width:100%;object-fit:cover;border-radius:5px}
+.c3 .pola span{display:block;text-align:center;font-size:13px;font-weight:700;color:#B4642E;margin-top:6px}
+/* c4 記録帳 */
+.chart{margin:16px 28px 0;border-radius:16px;background:var(--surface);padding:14px 14px 10px}
+.chart .top{display:flex;justify-content:space-between;font-size:12px;color:var(--ink-3);font-weight:700}
+.chart svg{width:100%;height:96px;display:block;margin-top:4px}
+.chart .line{stroke-dasharray:420;stroke-dashoffset:420;transition:stroke-dashoffset 1.8s var(--ease)}
+.c4.on .chart .line{stroke-dashoffset:0}
+.nexts{margin:12px 28px 28px;display:grid;gap:8px}
+.next em{font-style:normal;font-size:12px;color:var(--ink-3);font-weight:500}
+.next{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-radius:14px;background:#fff;box-shadow:0 0 0 1px var(--line) inset;font-size:14px;font-weight:700}
+.next span{font-size:12px;color:#fff;background:var(--orange);border-radius:999px;padding:2px 10px}
+/* c5 質問掲示板 */
+.qa{margin:18px 28px 28px;display:grid;gap:8px}
+.qa div{max-width:88%;padding:10px 14px;border-radius:16px;font-size:14px;line-height:1.6}
+.qa .q{background:#fff;border-bottom-left-radius:4px}
+.qa .a{justify-self:end;background:var(--green);color:#fff;border-bottom-right-radius:4px}
+.qa .tag{justify-self:end;background:transparent;padding:0;font-size:12px;color:var(--green);font-weight:700}
+/* c6 どうぶつマップ */
+.c6 .inner{display:grid;grid-template-columns:.9fr 1.1fr;gap:20px;align-items:center;padding:28px}
+.c6 .txt{padding:0}
+.maplist{display:grid;gap:8px}
+.mapitem{display:flex;align-items:center;gap:12px;padding:8px;border-radius:14px;background:var(--surface);transition:background .2s,transform .3s var(--ease)}
+.mapitem:hover{background:#fff;transform:translateX(4px);box-shadow:0 0 0 1px var(--line) inset}
+.mapitem img{width:52px;height:52px;border-radius:10px;object-fit:cover}
+.mapitem b{display:block;font-size:14px}
+.mapitem small{color:var(--ink-3);font-size:12px}
+.mapitem em{margin-left:auto;font-style:normal;font-size:11px;font-weight:700;color:#fff;padding:3px 10px;border-radius:999px;white-space:nowrap}
+.searchbar{display:flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;background:var(--surface);color:var(--ink-3);font-size:14px;margin:16px 0 10px}
+.searchbar svg{width:16px;height:16px}
+.prefs{display:flex;flex-wrap:wrap;gap:6px}
+.prefs span{font-size:12px;font-weight:700;padding:4px 11px;border-radius:999px;background:var(--mint);color:var(--green)}
+/* c7 イベント */
+.chatbox{margin:18px 28px 28px;display:grid;gap:8px}
+.bub{display:flex;gap:8px;align-items:flex-end}
+.bub .ava{width:28px;height:28px;border-radius:50%;object-fit:cover;flex:0 0 auto}
+.bub p{background:#fff;padding:8px 12px;border-radius:14px 14px 14px 4px;font-size:13.5px;color:var(--ink);box-shadow:0 2px 6px rgba(0,0,0,.05)}
+.poll{background:#fff;border-radius:14px;padding:10px 12px;box-shadow:0 2px 6px rgba(0,0,0,.05)}
+.poll b{font-size:13px;display:block;margin-bottom:6px}
+.poll div{display:flex;justify-content:space-between;font-size:12.5px;padding:5px 10px;border-radius:8px;background:var(--surface);margin-top:4px}
+.poll div.on{background:#E5EEFF;color:#2F5BD3;font-weight:700}
+@media (max-width:1040px){
+  .bento{grid-template-columns:repeat(6,1fr)}
+  .c1,.c2,.c6{grid-column:span 6}
+  .c3,.c4,.c5,.c7{grid-column:span 3}
+  .c5{margin-top:0}
+}
+@media (max-width:640px){
+  .bento{grid-template-columns:1fr;gap:14px}
+  .bento .cell{grid-column:auto;grid-row:auto}
+  .c1{min-height:520px}
+  .c1 .card{flex-wrap:wrap}
+  .c1 .card .reacts{width:100%}
+  .c1 .card .reacts button{flex:1;padding:8px 4px;font-size:11.5px}
+  .c6 .inner{grid-template-columns:1fr}
+  .cell .txt{padding:24px 22px 0}
+  .chart,.nexts,.qa,.chatbox{margin-left:22px;margin-right:22px}
+}
 
-/* faq */
-.faq{max-width:760px;margin:0 auto}
-details{background:#fff;border-radius:18px;margin-bottom:12px;box-shadow:0 2px 8px rgba(61,43,31,.04)}
-summary{list-style:none;cursor:pointer;padding:18px 54px 18px 22px;font-family:var(--round);font-weight:700;font-size:17px;position:relative}
-summary::-webkit-details-marker{display:none}
-summary::before{content:"Q";color:var(--orange);font-weight:900;margin-right:10px}
-summary::after{content:"";position:absolute;right:24px;top:50%;width:10px;height:10px;border-right:2px solid var(--sub);border-bottom:2px solid var(--sub);transform:translateY(-70%) rotate(45deg);transition:transform .2s}
-details[open] summary::after{transform:translateY(-30%) rotate(-135deg)}
-details p{margin:0;padding:0 22px 20px 48px;color:var(--sub)}
+/* ===== さわって見る（タブ） ===== */
+.demo{display:grid;grid-template-columns:minmax(0,560px) auto;justify-content:center;gap:96px;align-items:center}
+.seg{display:inline-flex;gap:4px;padding:5px;border-radius:16px;background:#fff;box-shadow:0 0 0 1px var(--line) inset;margin-bottom:30px;flex-wrap:wrap}
+.seg button{border:0;background:transparent;cursor:pointer;font-size:15px;font-weight:700;color:var(--ink-2);padding:11px 18px;border-radius:12px;transition:background .25s,color .25s}
+.seg button[aria-selected="true"]{background:var(--ink);color:#fff}
+.seg button:not([aria-selected="true"]):hover{background:var(--surface)}
+.panel h3{font-size:clamp(24px,2.6vw,34px);font-weight:900;line-height:1.4;margin-bottom:18px}
+.panel[hidden]{display:none}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.steps li{display:flex;gap:14px;align-items:flex-start;background:#fff;border-radius:16px;padding:16px 18px;box-shadow:0 0 0 1px var(--line) inset;animation:rise .5s var(--ease) both}
+.steps li:nth-child(2){animation-delay:.05s}.steps li:nth-child(3){animation-delay:.1s}.steps li:nth-child(4){animation-delay:.15s}
+@keyframes rise{from{opacity:0;transform:translateY(8px)}}
+.steps svg{flex:0 0 auto;width:22px;height:22px;color:var(--orange);margin-top:2px}
+.steps b{display:block;font-size:16px}
+.steps span{font-size:14.5px;color:var(--ink-2)}
+.demo .phone{width:300px}
+.demo-note{font-size:12px;color:var(--ink-3);text-align:center;margin-top:16px}
+@media (max-width:960px){.demo{grid-template-columns:1fr;gap:40px}.demo .phone-col{display:flex;flex-direction:column;align-items:center}}
 
-/* contact */
-.contact{background:var(--peach)}
-.contact .card{max-width:640px;margin:0 auto;background:#fff;border-radius:28px;padding:40px 28px;text-align:center}
-.mail{display:inline-flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:10px;margin:18px 0 8px}
-.mail a{font-family:var(--round);font-weight:900;font-size:clamp(18px,3.4vw,24px);color:var(--ink);text-decoration:none;border-bottom:3px solid var(--orange);word-break:break-all}
-.copy{border:0;background:var(--cream);color:var(--orange-d);font-weight:700;font-family:var(--round);border-radius:999px;padding:6px 14px;cursor:pointer;font-size:14px}
-.contact small{color:var(--sub);display:block;margin-top:6px}
+/* ===== 安心 ===== */
+.trust{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.trust div{background:#fff;border-radius:var(--r-lg);padding:28px;box-shadow:0 0 0 1px var(--line) inset;transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
+.trust div:hover{transform:translateY(-4px);box-shadow:0 0 0 1px var(--line) inset,0 24px 40px -28px rgba(29,36,32,.35)}
+.trust .ic{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;background:var(--mint);color:var(--green);margin-bottom:16px}
+.trust .ic svg{width:24px;height:24px}
+.trust h3{font-size:18px;font-weight:900;margin-bottom:6px}
+.trust p{font-size:14.5px;color:var(--ink-2)}
+@media (max-width:960px){.trust{grid-template-columns:1fr 1fr}}
+@media (max-width:640px){.trust{grid-template-columns:1fr}}
 
-/* footer */
-footer{padding:40px 0 48px;text-align:center;color:var(--sub);font-size:14px}
-footer img{height:26px;width:auto;margin:0 auto 14px}
-footer .links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:10px}
-footer .links a{color:var(--ink)}
+/* ===== 使う人ごとに ===== */
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:stretch}
+.plan{position:relative;border-radius:var(--r-xl);padding:36px 32px;background:#fff;box-shadow:0 0 0 1px var(--line) inset;display:flex;flex-direction:column}
+.plan .who{font-size:15px;font-weight:700;color:var(--ink-2)}
+.plan .price{font-size:44px;font-weight:900;line-height:1.2;margin:10px 0 6px}
+.plan .price small{font-size:15px;font-weight:700;color:var(--ink-3);margin-left:6px}
+.plan p.desc{font-size:14.5px;color:var(--ink-2);min-height:3.4em}
+.plan ul{list-style:none;margin:22px 0 28px;padding:22px 0 0;border-top:1px solid var(--line);display:grid;gap:10px}
+.plan li{display:flex;gap:10px;font-size:14.5px}
+.plan li svg{flex:0 0 auto;width:18px;height:18px;margin-top:4px;color:var(--green)}
+.plan .btn{margin-top:auto;width:100%}
+.plan.hl{background:var(--ink);color:#fff;box-shadow:0 30px 60px -30px rgba(29,36,32,.6);transform:translateY(-12px)}
+.plan.hl .who,.plan.hl p.desc,.plan.hl .price small{color:rgba(255,255,255,.75)}
+.plan.hl ul{border-color:rgba(255,255,255,.15)}
+.plan.hl li svg{color:var(--sun)}
+.plan.hl .badge{position:absolute;top:-14px;left:32px;background:var(--orange);color:#fff;font-size:13px;font-weight:700;padding:5px 14px;border-radius:999px}
+.plan-note{text-align:center;font-size:13px;color:var(--ink-3);margin-top:26px}
+@media (max-width:960px){.plans{grid-template-columns:1fr;max-width:520px;margin:0 auto}.plan.hl{transform:none}}
 
-.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+/* ===== お知らせ ===== */
+.news{list-style:none;padding:0;margin:0 auto;max-width:880px;background:#fff;border-radius:var(--r-lg);box-shadow:0 0 0 1px var(--line) inset;overflow:hidden}
+.news li{display:grid;grid-template-columns:112px 84px 1fr;gap:16px;align-items:baseline;padding:20px 28px;border-bottom:1px solid var(--line)}
+.news li:last-child{border-bottom:0}
+.news time{font-size:14px;color:var(--ink-3);font-variant-numeric:tabular-nums}
+.news .cat{font-size:12px;font-weight:700;text-align:center;border-radius:6px;padding:2px 0;background:var(--surface);color:var(--ink-2)}
+.news .cat.dev{background:var(--peach);color:var(--orange-d)}
+.news p{font-size:15px}
+@media (max-width:640px){.news li{grid-template-columns:auto auto;gap:4px 12px;padding:18px 20px}.news p{grid-column:1/-1}}
+
+/* ===== よくある質問 ===== */
+.faq-wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:start}
+.faq-side h2{font-size:clamp(30px,4vw,48px);font-weight:900;line-height:1.3}
+.faq-side p{color:var(--ink-2);margin-top:16px}
+.faq-side .animaru{width:140px;height:140px;margin-top:24px}
+.faq details{border-radius:18px;background:#fff;box-shadow:0 0 0 1px var(--line) inset;margin-bottom:10px;transition:box-shadow .25s}
+.faq details[open]{box-shadow:0 0 0 1.5px var(--ink) inset}
+.faq summary{list-style:none;cursor:pointer;padding:20px 60px 20px 24px;font-weight:700;font-size:16px;position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";position:absolute;right:20px;top:50%;width:28px;height:28px;margin-top:-14px;border-radius:50%;background:var(--surface) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 6v12M6 12h12' stroke='%231D2420' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E") center/14px no-repeat;transition:transform .3s var(--ease)}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{padding:0 24px 22px;color:var(--ink-2);font-size:15px}
+@media (max-width:960px){.faq-wrap{grid-template-columns:1fr;gap:28px}.faq-side .animaru{display:none}}
+
+/* ===== 運営者情報・お問い合わせ ===== */
+.contact{display:grid;grid-template-columns:1.05fr .95fr;gap:20px}
+.cbox{position:relative;border-radius:var(--r-xl);padding:44px;background:linear-gradient(140deg,var(--orange),#F2A06F);color:#fff;overflow:hidden}
+.cbox h2{font-size:clamp(28px,3.4vw,42px);font-weight:900;line-height:1.3}
+.cbox p{margin-top:14px;color:rgba(255,255,255,.92)}
+.cbox .mail{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:28px}
+.cbox .mail a{font-size:clamp(20px,2.4vw,28px);font-weight:900;color:#fff;text-decoration:none;border-bottom:2px solid rgba(255,255,255,.6);word-break:break-all}
+.copy{border:0;cursor:pointer;font-size:13px;font-weight:700;padding:7px 14px;border-radius:999px;background:rgba(255,255,255,.22);color:#fff;backdrop-filter:blur(8px)}
+.copy:hover{background:rgba(255,255,255,.34)}
+.cbox small{display:block;margin-top:12px;color:rgba(255,255,255,.85);font-size:13px}
+.cbox .animaru{position:absolute;right:28px;bottom:-6px;width:150px;height:150px}
+.info{border-radius:var(--r-xl);background:#fff;box-shadow:0 0 0 1px var(--line) inset;padding:12px 32px}
+.info dl{margin:0}
+.contact>*{min-width:0}
+.info dd{overflow-wrap:anywhere}
+.info div{display:grid;grid-template-columns:7.5em minmax(0,1fr);gap:16px;padding:18px 0;border-bottom:1px solid var(--line);font-size:15px}
+.info div:last-child{border-bottom:0}
+.info dt{color:var(--ink-3);font-weight:700}
+.info dd{margin:0}
+@media (max-width:640px){.info{padding:8px 20px}.info div{grid-template-columns:6em minmax(0,1fr);gap:10px}.seg button{font-size:14px;padding:10px 12px}}
+@media (max-width:960px){.contact{grid-template-columns:1fr}.cbox{padding:32px 26px 150px}.cbox .animaru{width:120px;height:120px;right:20px}}
+
+/* ===== フッター ===== */
+.site-footer{padding:72px 0 40px;border-top:1px solid var(--line);margin-top:120px}
+.site-footer .top{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap}
+.site-footer .brand img{height:28px;width:auto}
+.site-footer .brand p{font-size:13px;color:var(--ink-3);margin-top:12px}
+.fnav{display:flex;gap:56px;flex-wrap:wrap}
+.fnav div{display:grid;gap:8px;align-content:start;font-size:14px}
+.fnav b{font-size:12px;color:var(--ink-3);margin-bottom:2px}
+.fnav a{color:var(--ink);text-decoration:none}
+.fnav a:hover{color:var(--orange-d)}
+.credit{margin-top:48px;padding-top:24px;border-top:1px solid var(--line);font-size:12px;color:var(--ink-3)}
+.credit a{color:inherit}
+.copy-r{font-size:12px;color:var(--ink-3);margin-top:8px}
+
+/* ===== あにまる ===== */
+.animaru{display:block;overflow:visible}
+.animaru .am-body,.animaru .am-arm-r,.animaru .am-arm-l,.animaru .am-eyes{transform-box:view-box}
+.animaru .am-body{transform-origin:100px 180px;animation:am-bob 2.4s ease-in-out infinite}
+.animaru.wave .am-arm-r{transform-origin:150px 140px;animation:am-wave .9s ease-in-out infinite alternate}
+.animaru .am-eyes{transform-origin:100px 120px;animation:am-blink 4.8s infinite}
+.animaru.happy .am-arm-l{transform-origin:52px 122px;animation:am-cheer .6s ease-in-out infinite alternate}
+.animaru.happy .am-arm-r{transform-origin:148px 122px;animation:am-cheer-r .6s ease-in-out infinite alternate}
+@keyframes am-bob{50%{transform:translateY(-5px)}}
+@keyframes am-wave{from{transform:rotate(-18deg)}to{transform:rotate(18deg)}}
+@keyframes am-cheer{to{transform:rotate(-14deg)}}
+@keyframes am-cheer-r{to{transform:rotate(14deg)}}
+@keyframes am-blink{0%,93%,100%{transform:scaleY(1)}95%{transform:scaleY(.1)}}
+.bubble{position:relative;background:#fff;border-radius:16px;padding:10px 14px;font-size:13.5px;font-weight:700;line-height:1.55;box-shadow:0 10px 24px -12px rgba(29,36,32,.35),0 0 0 1px var(--line) inset;white-space:nowrap}
+.bubble::after{content:"";position:absolute;left:-6px;bottom:16px;width:12px;height:12px;background:#fff;transform:rotate(45deg);box-shadow:-1px 1px 0 var(--line)}
+
+/* 入ってくる動き（スクロールで1回だけ） */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
 .reveal.in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}.btn{transition:none}}
+.hero .intro>*{opacity:0;transform:translateY(16px);animation:in .9s var(--ease) forwards}
+.hero .intro>*:nth-child(2){animation-delay:.08s}.hero .intro>*:nth-child(3){animation-delay:.16s}.hero .intro>*:nth-child(4){animation-delay:.24s}.hero .intro>*:nth-child(5){animation-delay:.3s}
+@keyframes in{to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .reveal,.hero .intro>*{opacity:1;transform:none}
+  .chart .line{stroke-dashoffset:0}
+  html{scroll-behavior:auto}
+}
 </style>
 </head>
 <body>
 <a class="skip" href="#main">本文へ</a>
 
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <defs>
-    <symbol id="cat" viewBox="0 0 100 100"><path d="M18 30 L26 6 L44 24 Q50 22 56 24 L74 6 L82 30 Q90 44 88 60 Q84 86 50 88 Q16 86 12 60 Q10 44 18 30Z" fill="#F2A65A"/><path d="M24 22 L28 13 L36 22Z M76 22 L72 13 L64 22Z" fill="#F7C9A3"/><circle cx="36" cy="54" r="5" fill="#3D2B1F"/><circle cx="64" cy="54" r="5" fill="#3D2B1F"/><path d="M46 64 L54 64 L50 69Z" fill="#C9673F"/><path d="M50 69 Q44 76 38 72 M50 69 Q56 76 62 72" stroke="#3D2B1F" stroke-width="2.4" fill="none" stroke-linecap="round"/></symbol>
-    <symbol id="dog" viewBox="0 0 100 100"><ellipse cx="50" cy="56" rx="34" ry="32" fill="#E9C9A0"/><path d="M14 28 Q6 52 18 66 Q26 50 26 32Z M86 28 Q94 52 82 66 Q74 50 74 32Z" fill="#9C6B45"/><circle cx="38" cy="52" r="5" fill="#3D2B1F"/><circle cx="62" cy="52" r="5" fill="#3D2B1F"/><ellipse cx="50" cy="68" rx="14" ry="10" fill="#F6E3CB"/><ellipse cx="50" cy="64" rx="6" ry="4.5" fill="#3D2B1F"/><path d="M50 69 Q50 76 44 76 M50 69 Q50 76 56 76" stroke="#3D2B1F" stroke-width="2.2" fill="none" stroke-linecap="round"/></symbol>
-    <symbol id="rabbit" viewBox="0 0 100 100"><ellipse cx="36" cy="22" rx="9" ry="22" fill="#F3EEEA"/><ellipse cx="64" cy="22" rx="9" ry="22" fill="#F3EEEA"/><ellipse cx="36" cy="24" rx="4" ry="15" fill="#F6C6C6"/><ellipse cx="64" cy="24" rx="4" ry="15" fill="#F6C6C6"/><ellipse cx="50" cy="64" rx="30" ry="26" fill="#FBF8F5"/><circle cx="39" cy="60" r="4.5" fill="#3D2B1F"/><circle cx="61" cy="60" r="4.5" fill="#3D2B1F"/><ellipse cx="50" cy="70" rx="4" ry="3" fill="#E89A9A"/><circle cx="30" cy="70" r="5" fill="#F6C6C6" opacity=".7"/><circle cx="70" cy="70" r="5" fill="#F6C6C6" opacity=".7"/></symbol>
-    <symbol id="bird" viewBox="0 0 100 100"><ellipse cx="50" cy="56" rx="30" ry="32" fill="#8FD0A8"/><ellipse cx="50" cy="66" rx="20" ry="20" fill="#FFF6D8"/><circle cx="40" cy="46" r="4.5" fill="#3D2B1F"/><circle cx="60" cy="46" r="4.5" fill="#3D2B1F"/><path d="M44 54 L56 54 L50 62Z" fill="#F2A65A"/><circle cx="34" cy="56" r="5" fill="#F7A9A0" opacity=".8"/><circle cx="66" cy="56" r="5" fill="#F7A9A0" opacity=".8"/><path d="M50 24 Q46 14 52 10 Q52 18 56 22" fill="#8FD0A8"/></symbol>
-    <symbol id="lizard" viewBox="0 0 100 100"><ellipse cx="50" cy="58" rx="34" ry="26" fill="#F2D27A"/><circle cx="34" cy="54" r="7" fill="#fff"/><circle cx="66" cy="54" r="7" fill="#fff"/><circle cx="34" cy="54" r="4" fill="#3D2B1F"/><circle cx="66" cy="54" r="4" fill="#3D2B1F"/><path d="M38 70 Q50 78 62 70" stroke="#3D2B1F" stroke-width="2.4" fill="none" stroke-linecap="round"/><circle cx="28" cy="40" r="3" fill="#B98A2F"/><circle cx="50" cy="36" r="3.5" fill="#B98A2F"/><circle cx="72" cy="40" r="3" fill="#B98A2F"/></symbol>
-    <symbol id="paw" viewBox="0 0 24 24"><ellipse cx="6" cy="9" rx="2.2" ry="2.8"/><ellipse cx="10" cy="5.5" rx="2.2" ry="2.8"/><ellipse cx="14" cy="5.5" rx="2.2" ry="2.8"/><ellipse cx="18" cy="9" rx="2.2" ry="2.8"/><path d="M12 11c-3.5 0-6.5 4-6.5 6.5 0 2 1.6 3 3.2 3 1.4 0 2.2-.8 3.3-.8s1.9.8 3.3.8c1.6 0 3.2-1 3.2-3C18.5 15 15.5 11 12 11z"/></symbol>
-    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
-    <symbol id="i-home" viewBox="0 0 24 24"><path d="M4 11l8-7 8 7v9h-5v-6h-6v6H4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
-    <symbol id="i-book" viewBox="0 0 24 24"><path d="M5 4h10a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3z M5 17a3 3 0 0 1 3-3h10" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
-    <symbol id="i-people" viewBox="0 0 24 24"><circle cx="8" cy="8" r="3" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="16.5" cy="9" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M2.5 19c.6-3.2 2.8-5 5.5-5s4.9 1.8 5.5 5 M14 14.3c.8-.3 1.6-.4 2.5-.4 2.4 0 4.2 1.6 4.8 4.6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
-    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.4-3 7.6-7 9-4-1.4-7-4.6-7-9V6z M9 12l2 2 4-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></symbol>
-    <symbol id="i-block" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="2"/><path d="M6.5 6.5l11 11" stroke="currentColor" stroke-width="2"/></symbol>
-    <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 20c.8-4 4-6 8-6s7.2 2 8 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
-    <symbol id="i-flag" viewBox="0 0 24 24"><path d="M5 21V4 M5 4h11l-2 4 2 4H5" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></symbol>
-    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
-    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
-    <symbol id="i-mega" viewBox="0 0 24 24"><path d="M3 10v4h4l8 5V5L7 10z M18 9a4 4 0 0 1 0 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></symbol>
-    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-6-6-6-11a6 6 0 0 1 12 0c0 5-6 11-6 11z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="10" r="2" fill="currentColor"/></symbol>
-    <symbol id="i-share" viewBox="0 0 24 24"><circle cx="6" cy="12" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="18" cy="6" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="18" cy="18" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8.2 10.8l7.6-3.6 M8.2 13.2l7.6 3.6" stroke="currentColor" stroke-width="2"/></symbol>
-    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M16 16l4 4" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></symbol>
-  </defs>
-</svg>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 12.5l2.6 2.5L16 9.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-tick" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M16 16l4 4" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></symbol>
+  <symbol id="n-home" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" fill="currentColor"/></symbol>
+  <symbol id="n-pets" viewBox="0 0 24 24"><circle cx="4.5" cy="9.5" r="2.5" fill="currentColor"/><circle cx="9" cy="5.5" r="2.5" fill="currentColor"/><circle cx="15" cy="5.5" r="2.5" fill="currentColor"/><circle cx="19.5" cy="9.5" r="2.5" fill="currentColor"/><path d="M17.3 14.9c-.9-1-1.6-1.9-2.5-2.9-.5-.5-1-1.1-1.7-1.3-.1 0-.2-.1-.3-.1-.3 0-.5-.1-.8-.1s-.6 0-.8.1c-.1 0-.2 0-.3.1-.7.2-1.2.8-1.7 1.3-.8 1-1.6 1.9-2.5 2.9-1.3 1.3-2.9 2.8-2.6 4.8.3 1 1 2 2.3 2.3.7.1 3.2-.5 5.6-.5h.2c2.4 0 4.9.6 5.6.5 1.3-.3 2-1.3 2.3-2.3.3-2-1.3-3.5-2.8-4.8z" fill="currentColor"/></symbol>
+  <symbol id="n-event" viewBox="0 0 24 24"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1h-2zm3 18H5V8h14v11z" fill="currentColor"/></symbol>
+  <symbol id="n-chat" viewBox="0 0 24 24"><path d="M20 2H4a2 2 0 0 0-2 2v18l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2z" fill="currentColor"/></symbol>
+  <symbol id="n-person" viewBox="0 0 24 24"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm0 2c-2.7 0-8 1.3-8 4v2h16v-2c0-2.7-5.3-4-8-4z" fill="currentColor"/></symbol>
+  <symbol id="s-wifi" viewBox="0 0 24 24"><path d="M12 18.5l2.2-2.6a3.3 3.3 0 0 0-4.4 0zm-4.6-5.3l1.6 1.9a4.8 4.8 0 0 1 6 0l1.6-1.9a7.3 7.3 0 0 0-9.2 0zM3.8 9.4l1.6 1.9a10 10 0 0 1 13.2 0l1.6-1.9a12.4 12.4 0 0 0-16.4 0z" fill="currentColor"/></symbol>
+  <symbol id="s-bat" viewBox="0 0 24 24"><rect x="2" y="7" width="18" height="10" rx="3" fill="none" stroke="currentColor" stroke-width="1.6"/><rect x="4" y="9" width="12" height="6" rx="1.5" fill="currentColor"/><rect x="21" y="10" width="1.6" height="4" rx=".8" fill="currentColor"/></symbol>
+</defs></svg>
 
-<header id="top">
-  <div class="wrap bar">
-    <a class="logo" href="#top" aria-label="AniMatch トップへ"><img src="assets/logo.png" alt="AniMatch" width="681" height="126"></a>
-    <nav aria-label="ページ内のメニュー">
-      <ul>
-        <li><a href="#screens">画面</a></li>
-        <li><a href="#features">できること</a></li>
-        <li><a href="#safety">安心のしくみ</a></li>
-        <li><a href="#faq">よくある質問</a></li>
-        <li class="keep"><a class="nav-cta" href="#orgs">保護団体の方へ</a></li>
-      </ul>
-    </nav>
+<header class="site-header">
+  <div class="wrap">
+    <div class="bar glass">
+      <a class="logo" href="./" aria-label="AniMatch トップ"><img src="assets/logo.png" alt="AniMatch" width="681" height="126"></a>
+      <button class="menu-btn" type="button" aria-label="メニュー" aria-expanded="false" aria-controls="gnav"><span></span><span></span><span></span></button>
+      <nav class="gnav" id="gnav" aria-label="メニュー">
+        <ul>
+          <li><a href="#features">できること</a></li>
+          <li><a href="#demo">使い方</a></li>
+          <li><a href="#safety">安心のしくみ</a></li>
+          <li><a href="#plans">使う人ごとに</a></li>
+          <li><a href="#faq">よくある質問</a></li>
+          <li class="cta"><a href="#contact">お問い合わせ</a></li>
+        </ul>
+      </nav>
+    </div>
   </div>
 </header>
 
 <main id="main">
-  <!-- ひとこと -->
-  <section class="hero" aria-labelledby="hero-title">
-    <div class="wrap">
-      <div>
-        <span class="badge"><svg aria-hidden="true" fill="currentColor"><use href="#paw"/></svg>2027年2月公開予定</span>
-        <h1 id="hero-title">動物が好きな人の、<br><span class="hl">あたたかい広場。</span></h1>
-        <p class="lead">AniMatchは、保護されている動物や保護団体の活動と、動物と暮らす人・動物好きの人をつなぐ、動物好きのコミュニティアプリです。</p>
-        <div class="btns">
-          <a class="btn primary" href="#features">できることを見る</a>
-          <a class="btn ghost" href="#orgs">保護団体の方へ</a>
-        </div>
+
+<!-- ファーストビュー -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="wrap">
+    <div class="intro">
+      <span class="eyebrow"><b>2027年2月</b>公開予定</span>
+      <h1 id="hero-title">
+        <span class="sr">動物好きが、つながる場所。</span>
+        <span class="line" aria-hidden="true"><span class="roll" id="roll"><span class="track" id="track"><span data-k="cat">猫</span><span data-k="dog">犬</span><span data-k="rabbit">うさぎ</span><span data-k="bird">小鳥</span><span data-k="hamster">小動物</span><span data-k="gecko">爬虫類</span><span data-k="puppy">動物</span></span></span>好きが、</span>
+        <span class="line" aria-hidden="true">つながる場所。</span>
+      </h1>
+      <p class="lead">AniMatchは、保護されている動物や保護団体の活動と、動物と暮らす人・動物好きの人をつなぐ、動物好きのコミュニティアプリです。</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="#features">できることを見る<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn-ghost" href="#orgs-plan">保護団体の方へ</a>
       </div>
-      <div class="hero-art" aria-hidden="true">
-        <div class="phone">
-          <div class="screen">
-            <div class="notch"><i></i></div>
-            <div class="app-top"><b>ペット自慢</b><span style="color:var(--orange)">＋ 投稿</span></div>
-            <div class="app-body">
-              <div class="tabs"><span class="on">すべて</span><span>犬</span><span>猫</span><span>うさぎ</span><span>小鳥</span><span>爬虫類</span></div>
+      <div class="meta">
+        <span><svg aria-hidden="true"><use href="#i-check"/></svg>無料で使えます</span>
+        <span><svg aria-hidden="true"><use href="#i-check"/></svg>犬・猫以外の動物も</span>
+        <span><svg aria-hidden="true"><use href="#i-check"/></svg>個人で開発しています</span>
+      </div>
+    </div>
+
+    <div class="stage">
+      <div class="phone" aria-label="AniMatchのホーム画面のイメージ" role="img">
+        <div class="screen">
+          <div class="status"><span>9:41</span><i><svg><use href="#s-wifi"/></svg><svg><use href="#s-bat"/></svg></i></div>
+          <div class="app">
+            <div class="view">
+              <div class="app-top"><div><small>こんにちは、みけさん！🐾</small><b>AniMatch</b></div><span class="round">🏆</span></div>
+              <div class="memory"><img src="assets/photos/t/rabbit.jpg" alt=""><div><b>📸 思い出の日</b><small>1年前の今日のもち</small></div></div>
+              <div class="tabs-app"><span class="on">おすすめ</span><span>新着</span><span>人気</span><span>週間ランキング</span><span>マイ投稿</span></div>
               <div class="post">
-                <div class="who"><em></em>こむぎ</div>
-                <div class="pic p1"><svg><use href="#cat"/></svg></div>
-                <div class="reacts"><span>かわいい</span><span>おもしろい</span><span>癒される</span></div>
-              </div>
-              <div class="post">
-                <div class="who"><em style="background:var(--mint)"></em>そら</div>
-                <div class="pic p2"><svg><use href="#bird"/></svg></div>
+                <div class="post-head"><img src="assets/photos/t/cat.jpg" alt="" id="feed-ava"><div><b id="feed-name">むぎ</b><small id="feed-time">2時間前</small></div></div>
+                <div class="post-pic" id="feed">
+                  <img data-k="cat" class="on" src="assets/photos/w/cat.jpg" alt="">
+                  <img data-k="dog" src="assets/photos/w/dog.jpg" alt="" loading="lazy">
+                  <img data-k="rabbit" src="assets/photos/w/rabbit.jpg" alt="" loading="lazy">
+                  <img data-k="bird" src="assets/photos/w/bird.jpg" alt="" loading="lazy">
+                  <img data-k="hamster" src="assets/photos/w/hamster.jpg" alt="" loading="lazy">
+                  <img data-k="gecko" src="assets/photos/w/gecko.jpg" alt="" loading="lazy">
+                  <img data-k="puppy" src="assets/photos/w/puppy.jpg" alt="" loading="lazy">
+                  <span class="kind" id="feed-kind">猫</span>
+                </div>
+                <div class="reacts"><button type="button" aria-pressed="true">😍 かわいい</button><button type="button" aria-pressed="false">🤣 おもしろい</button><button type="button" aria-pressed="false">🥹 癒される</button></div>
               </div>
             </div>
-            <div class="navbar"><i class="on"></i><i></i><i></i><i></i><i></i></div>
+          </div>
+          <div class="appnav"><span class="on"><svg><use href="#n-home"/></svg>ホーム</span><span><svg><use href="#n-pets"/></svg>どうぶつマップ</span><span><svg><use href="#n-event"/></svg>イベント</span><span><svg><use href="#n-chat"/></svg>チャット</span><span><svg><use href="#n-person"/></svg>マイページ</span></div>
+        </div>
+      </div>
+      <div class="float glass f1" aria-hidden="true"><img src="assets/photos/t/dog.jpg" alt=""><div><b>😍 かわいい が届きました</b><small>あなたの投稿「こむぎ」</small></div></div>
+      <div class="float glass f2" aria-hidden="true"><img src="assets/photos/t/shelter.jpg" alt=""><div><b>保護団体のお知らせ</b><small>譲渡会のお知らせ</small></div></div>
+      <div class="hero-mascot"><svg class="animaru wave " viewBox="0 0 200 200" role="img" aria-label="あにまる"><ellipse cx="100" cy="184" rx="52" ry="7" fill="#000" opacity=".08"/><g class="am-body"><g fill="#4E8A6E"><circle cx="70" cy="58" r="11"/><circle cx="92" cy="48" r="12"/><circle cx="114" cy="50" r="11"/><circle cx="133" cy="60" r="9"/></g><path d="M100 58C140 58 164 88 164 124C164 158 138 178 100 178C62 178 36 158 36 124C36 88 60 58 100 58Z" fill="#E8845A"/><ellipse cx="40" cy="138" rx="9" ry="12" transform="rotate(25 40 138)" fill="#E8845A"/><g class="am-arm-r"><ellipse cx="160" cy="128" rx="9" ry="12" transform="rotate(-60 160 128)" fill="#E8845A"/></g><ellipse cx="82" cy="178" rx="13" ry="7" fill="#D9744C"/><ellipse cx="118" cy="178" rx="13" ry="7" fill="#D9744C"/><ellipse cx="62" cy="134" rx="9" ry="6" fill="#F9C3A9"/><ellipse cx="138" cy="134" rx="9" ry="6" fill="#F9C3A9"/><g class="am-eyes" fill="#2E2018"><circle cx="81" cy="120" r="5"/><circle cx="119" cy="120" r="5"/></g><path d="M94 134Q100 139 106 134" fill="none" stroke="#2E2018" stroke-width="3" stroke-linecap="round"/></g></svg><p class="bubble">こんにちは、<br>あにまるです！</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- できること（弁当箱） -->
+<section class="section tint" id="features" aria-labelledby="f-title">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="kicker">できること</span>
+      <h2 id="f-title">うちの子の毎日も、<br>保護された子のことも。</h2>
+      <p>犬・猫・うさぎ・小鳥・小動物・爬虫類など、いろいろな動物と暮らす人と、動物が好きな人のためのアプリです。</p>
+    </div>
+
+    <div class="bento">
+      <article class="cell c1 reveal">
+        <div class="bg"><img src="assets/photos/w/puppy.jpg" alt="こちらを見て笑う子犬" loading="lazy"></div>
+        <div class="txt"><span class="label">ペット自慢</span><h3>うちの子の写真を、<br>みんなと見せ合う</h3><p>気に入った写真には、気持ちを送れます。</p></div>
+        <div class="card glass">
+          <img src="assets/photos/t/puppy.jpg" alt="">
+          <div class="who"><b>ポチ</b><small>ためしに押してみてください</small></div>
+          <div class="reacts" role="group" aria-label="気持ちを送るボタンのためし"><button type="button" aria-pressed="false">😍 かわいい</button><button type="button" aria-pressed="false">🤣 おもしろい</button><button type="button" aria-pressed="false">🥹 癒される</button></div>
+        </div>
+      </article>
+
+      <article class="cell c2 reveal">
+        <div class="txt"><span class="label">週間ランキング</span><h3>犬や猫以外の子も、<br>1位になれる</h3><p>動物の種類ごとに見られます。</p>
+          <div class="kinds-row" role="group" aria-label="動物の種類">
+            <button type="button" data-set="0" aria-pressed="true">小動物</button><button type="button" data-set="1" aria-pressed="false">犬</button><button type="button" data-set="2" aria-pressed="false">猫</button><button type="button" data-set="3" aria-pressed="false">小鳥</button><button type="button" data-set="4" aria-pressed="false">爬虫類</button>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
+        <div class="podium" aria-hidden="true">
+          <div class="p p2"><div class="face"><img src="assets/photos/t/guinea.jpg" alt=""></div><div class="nm">くるみ</div><div class="stand">2</div></div>
+          <div class="p p1"><div class="face"><img src="assets/photos/t/hamster.jpg" alt=""></div><div class="nm">だいふく</div><div class="stand">1</div></div>
+          <div class="p p3"><div class="face"><img src="assets/photos/t/hamster2.jpg" alt=""></div><div class="nm">しらたま</div><div class="stand">3</div></div>
+        </div>
+      </article>
 
-  <!-- 画面 -->
-  <section class="screens" id="screens" aria-labelledby="screens-title">
-    <div class="wrap">
-      <div class="sec-head reveal">
-        <span class="kicker">画面</span>
-        <h2 id="screens-title">こんなアプリを作っています</h2>
-        <p>うちの子の写真から、保護された子の情報、毎日の記録まで。動物との暮らしが、ひとつにまとまります。</p>
+      <article class="cell c3 reveal">
+        <div class="txt"><span class="label">思い出の日</span><h3>1年前の今日の、うちの子</h3><p>1週間前・1か月前・1年前に投稿した写真が、ホームに出ます。</p></div>
+        <div class="pola" aria-hidden="true"><img src="assets/photos/t/dog.jpg" alt=""><span>1年前の今日</span></div>
+      </article>
+
+      <article class="cell c4 reveal" id="rec">
+        <div class="txt"><span class="label">うちの子の記録帳</span><h3>体重・ワクチン・薬・通院</h3><p>記録は本人だけが見られます。</p></div>
+        <div class="chart" aria-hidden="true">
+          <div class="top"><span>体重</span><span>この半年</span></div>
+          <svg viewBox="0 0 300 96" preserveAspectRatio="none"><path d="M0 84H300M0 50H300M0 16H300" stroke="#E5E0DA"/><path class="line" d="M6 80C50 76,80 66,120 58S210 34,294 24" stroke="#E8845A" stroke-width="4" fill="none" stroke-linecap="round"/><circle cx="294" cy="24" r="6" fill="#E8845A"/></svg>
+        </div>
+        <div class="nexts" aria-hidden="true"><div class="next">💉 ワクチン<span>もうすぐ</span></div><div class="next">💊 お薬<em>次の予定日</em></div><div class="next">🏥 通院<em>メモ</em></div></div>
+      </article>
+
+      <article class="cell c5 reveal">
+        <div class="txt"><span class="label">質問掲示板</span><h3>飼い方の疑問を、聞き合える</h3></div>
+        <div class="qa" aria-hidden="true">
+          <div class="q">冬のケージ、温度は何度くらいにしていますか？</div>
+          <div class="a">うちはヒーターを半分だけしいて、温度計で見ています！</div>
+          <div class="tag">役に立った</div>
+        </div>
+      </article>
+
+      <article class="cell c6 reveal">
+        <div class="inner">
+          <div class="txt"><span class="label">どうぶつマップ</span><h3>団体・里親募集・迷子・<br>ボランティアを探せる</h3><p>ことばや都道府県で、しぼりこめます。動物病院も探せます。</p>
+            <div class="searchbar" aria-hidden="true"><svg><use href="#i-search"/></svg>ことばで探す</div>
+            <div class="prefs" aria-hidden="true"><span>東京都</span><span>大阪府</span><span>愛知県</span><span>福岡県</span></div>
+          </div>
+          <div class="maplist" aria-hidden="true">
+            <div class="mapitem"><img src="assets/photos/t/shelter.jpg" alt=""><div><b>新しい家族を待っています</b><small>里親募集</small></div><em class="c-ad">里親募集</em></div>
+            <div class="mapitem"><img src="assets/photos/t/cat.jpg" alt=""><div><b>茶トラの猫をさがしています</b><small>迷子の情報</small></div><em class="c-lost">迷子</em></div>
+            <div class="mapitem"><img src="assets/photos/t/rabbit.jpg" alt=""><div><b>譲渡会のお知らせ</b><small>保護団体</small></div><em class="c-org">団体</em></div>
+            <div class="mapitem"><img src="assets/photos/t/puppy.jpg" alt=""><div><b>お散歩のお手伝い</b><small>ボランティア募集</small></div><em class="c-vol">ボランティア</em></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="cell c7 reveal">
+        <div class="txt"><span class="label">イベント</span><h3>動物好きどうしで集まる</h3><p>参加者のグループチャットつき。</p></div>
+        <div class="chatbox" aria-hidden="true">
+          <div class="bub"><img class="ava" src="assets/photos/t/bird.jpg" alt=""><p>よろしくお願いします🐾</p></div>
+          <div class="poll"><b>📅 日にちの投票</b><div class="on">土曜日<span>✓</span></div><div>日曜日<span></span></div></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- さわって見る -->
+<section class="section" id="demo" aria-labelledby="d-title">
+  <div class="wrap">
+    <div class="head reveal"><span class="kicker">使い方</span><h2 id="d-title">あなたに合った使い方を</h2></div>
+    <div class="demo">
+      <div>
+        <div class="seg" role="tablist" aria-label="使う人">
+          <button role="tab" id="t-a" aria-controls="p-a" aria-selected="true" data-view="v-home">動物と暮らす人</button>
+          <button role="tab" id="t-b" aria-controls="p-b" aria-selected="false" tabindex="-1" data-view="v-map">動物が好きな人</button>
+          <button role="tab" id="t-c" aria-controls="p-c" aria-selected="false" tabindex="-1" data-view="v-org">保護団体</button>
+        </div>
+        <div class="panel" id="p-a" role="tabpanel" aria-labelledby="t-a">
+          <h3>うちの子の毎日を、みんなと。</h3>
+          <ul class="steps">
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><div><b>写真を見せ合う</b><span>ペット自慢に投稿すると、「かわいい」「おもしろい」「癒される」が届きます。</span></div></li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><div><b>ランキングに出る</b><span>動物の種類ごとの週間ランキングで、うちの子が1位になれるかも。</span></div></li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><div><b>記録をつける</b><span>体重・ワクチン・薬・通院を、うちの子の記録帳にまとめられます。</span></div></li>
+          </ul>
+        </div>
+        <div class="panel" id="p-b" role="tabpanel" aria-labelledby="t-b" hidden>
+          <h3>飼っていなくても、動物のそばに。</h3>
+          <ul class="steps">
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><div><b>里親募集を見る</b><span>新しい家族を待っている、保護された動物たちの情報を見られます。</span></div></li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><div><b>ボランティアを探す</b><span>どうぶつマップで、ことばや都道府県からボランティア募集を探せます。</span></div></li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><div><b>イベントに行く</b><span>動物好きどうしで集まるイベントに参加できます。</span></div></li>
+          </ul>
+        </div>
+        <div class="panel" id="p-c" role="tabpanel" aria-labelledby="t-c" hidden>
+          <h3>活動を、もっと多くの人へ。</h3>
+          <ul class="steps">
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><div><b>お知らせ・活動報告を出す</b><span>譲渡会の告知やお礼などを、団体が自分で出せます。</span></div></li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><div><b>里親・ボランティアを募集する</b><span>新しい家族や、お手伝いしてくれる人を募集できます。</span></div></li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><div><b>SNSでも広げる</b><span>里親募集を、ロゴ入りの画像にしてシェアできます。</span></div></li>
+          </ul>
+        </div>
       </div>
-      <div class="phones">
-        <figure>
-          <div class="phone" aria-hidden="true"><div class="screen">
-            <div class="notch"><i></i></div>
-            <div class="app-top"><b>週間ランキング</b></div>
-            <div class="app-body">
-              <div class="tabs"><span>犬</span><span>猫</span><span class="on">うさぎ</span><span>小鳥</span><span>小動物</span><span>爬虫類</span></div>
-              <div class="tabs"><span>総合</span><span class="on">かわいい</span><span>おもしろい</span><span>癒される</span></div>
-              <div class="podium">
-                <div><div class="face p2"><svg><use href="#rabbit"/></svg></div><div class="stand s2">2</div></div>
-                <div><div class="face p1"><svg><use href="#rabbit"/></svg></div><div class="stand s1">1</div></div>
-                <div><div class="face p3"><svg><use href="#rabbit"/></svg></div><div class="stand s3">3</div></div>
+
+      <div class="phone-col">
+        <div class="phone" role="img" aria-label="選んだ使い方の画面のイメージ">
+          <div class="screen">
+            <div class="status"><span>9:41</span><i><svg><use href="#s-wifi"/></svg><svg><use href="#s-bat"/></svg></i></div>
+            <div class="app">
+              <div class="view" id="v-home">
+                <div class="app-top"><div><small>こんにちは、みけさん！🐾</small><b>AniMatch</b></div><span class="round">🏆</span></div>
+                <div class="tabs-app"><span class="on">おすすめ</span><span>新着</span><span>人気</span><span>週間ランキング</span></div>
+                <div class="post">
+                  <div class="post-head"><img src="assets/photos/t/gecko.jpg" alt=""><div><b>レモン</b><small>たった今</small></div></div>
+                  <div class="post-pic"><img class="on" src="assets/photos/w/gecko.jpg" alt="" loading="lazy"><span class="kind">爬虫類</span></div>
+                  <div class="reacts"><button type="button" aria-pressed="false">😍 かわいい</button><button type="button" aria-pressed="true">🤣 おもしろい</button><button type="button" aria-pressed="false">🥹 癒される</button></div>
+                </div>
+                <div class="post" style="margin-top:10px">
+                  <div class="post-head"><img src="assets/photos/t/cockatiel.jpg" alt=""><div><b>ぴぃ</b><small>1時間前</small></div></div>
+                  <div class="post-pic"><img class="on" src="assets/photos/w/cockatiel.jpg" alt="" loading="lazy"><span class="kind">小鳥</span></div>
+                </div>
               </div>
-              <div class="rank-list">
-                <div><b>4</b><em class="p4"></em><span>もち</span></div>
-                <div><b>5</b><em class="p2"></em><span>きなこ</span></div>
-                <div><b>6</b><em class="p1"></em><span>ぽてと</span></div>
+              <div class="view" id="v-map" hidden>
+                <div class="app-top"><div><b>どうぶつマップ 🐾</b></div></div>
+                <div class="search-app"><svg><use href="#i-search"/></svg>ことばで探す</div>
+                <div class="chips-app"><span class="on">すべて</span><span>団体</span><span>里親</span><span>迷子情報</span><span>ボランティア</span></div>
+                <div class="grid-app">
+                  <div class="tile-app"><div class="pic"><img src="assets/photos/t/shelter.jpg" alt="" loading="lazy"><em class="c-ad">里親募集</em></div><b>新しい家族を待っています</b><small>保護団体</small></div>
+                  <div class="tile-app"><div class="pic"><img src="assets/photos/t/puppy.jpg" alt="" loading="lazy"><em class="c-vol">ボランティア</em></div><b>お散歩のお手伝い</b><small>週末</small></div>
+                  <div class="tile-app"><div class="pic"><img src="assets/photos/t/cat.jpg" alt="" loading="lazy"><em class="c-lost">迷子</em></div><b>茶トラの猫</b><small>見かけたら連絡を</small></div>
+                  <div class="tile-app"><div class="pic"><img src="assets/photos/t/rabbit.jpg" alt="" loading="lazy"><em class="c-org">団体</em></div><b>保護団体</b><small>新しく登録されました</small></div>
+                </div>
+              </div>
+              <div class="view" id="v-org" hidden>
+                <div class="app-top"><div><b>お知らせを書く</b></div></div>
+                <div class="org-head"><span class="ava">保</span><div><b>保護団体のマイページ</b><small>お知らせ・活動報告</small></div></div>
+                <div class="compose">
+                  <div class="kinds"><span class="on">お知らせ</span><span>活動報告</span><span>イベントの告知</span><span>おねがい</span></div>
+                  <div class="field">今月の譲渡会のお知らせです。新しい家族を待っている子たちが参加します。</div>
+                  <div class="photo"><img src="assets/photos/w/shelter.jpg" alt="" loading="lazy"></div>
+                  <span class="send">投稿する</span>
+                  <span class="share">ロゴ入りの画像にしてシェア</span>
+                </div>
               </div>
             </div>
-            <div class="navbar"><i></i><i class="on"></i><i></i><i></i><i></i></div>
-          </div></div>
-          <figcaption>動物の種類ごとのランキング</figcaption>
-        </figure>
-        <figure>
-          <div class="phone" aria-hidden="true"><div class="screen">
-            <div class="notch"><i></i></div>
-            <div class="app-top"><b>どうぶつマップ</b></div>
-            <div class="app-body">
-              <div class="search"><svg><use href="#i-search"/></svg>ことばで探す</div>
-              <div class="tabs"><span class="on">すべて</span><span>団体</span><span>里親募集</span><span>迷子</span></div>
-              <div class="map"><i style="left:22%;top:28%;background:var(--orange)"></i><i style="left:58%;top:50%;background:#D9534F"></i><i style="left:74%;top:22%;background:var(--green)"></i><i style="left:40%;top:62%;background:#6C8EBF"></i></div>
-              <div class="item"><span class="tag t-a">里親募集</span><span>子猫のきょうだい</span></div>
-              <div class="item"><span class="tag t-b">迷子</span><span>茶色の小型犬</span></div>
-              <div class="item"><span class="tag t-c">団体</span><span>譲渡会のお知らせ</span></div>
-              <div class="item"><span class="tag t-d">ボランティア</span><span>お散歩のお手伝い</span></div>
-            </div>
-            <div class="navbar"><i></i><i></i><i class="on"></i><i></i><i></i></div>
-          </div></div>
-          <figcaption>団体・里親募集・迷子をさがす</figcaption>
-        </figure>
-        <figure>
-          <div class="phone" aria-hidden="true"><div class="screen">
-            <div class="notch"><i></i></div>
-            <div class="app-top"><b>うちの子の記録帳</b></div>
-            <div class="app-body">
-              <div class="rec-card"><b>体重</b>
-                <svg viewBox="0 0 200 80" preserveAspectRatio="none"><path d="M0 70 L200 70" stroke="#F0E2D9"/><path d="M0 40 L200 40" stroke="#F0E2D9"/><path d="M5 60 C40 55,60 50,90 44 S150 30,195 26" stroke="#E8845A" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="195" cy="26" r="5" fill="#E8845A"/></svg>
-              </div>
-              <div class="next"><span>ワクチン<br><small>次の予定日が近づいています</small></span><svg width="18" height="18" style="color:var(--orange)"><use href="#i-pin"/></svg></div>
-              <div class="next" style="border-color:var(--green-l)"><span>お薬<br><small>次の予定日</small></span></div>
-              <div class="next" style="border-color:#E9B872"><span>通院<br><small>メモ</small></span></div>
-            </div>
-            <div class="navbar"><i></i><i></i><i></i><i class="on"></i><i></i></div>
-          </div></div>
-          <figcaption>体重・ワクチン・薬・通院の記録</figcaption>
-        </figure>
-      </div>
-      <p class="note">画面はイメージです。開発中のため、変わることがあります。</p>
-    </div>
-  </section>
-
-  <!-- できること -->
-  <section id="features" aria-labelledby="features-title">
-    <div class="wrap">
-      <div class="sec-head reveal">
-        <span class="kicker">できること</span>
-        <h2 id="features-title">AniMatchでできること</h2>
-        <p>犬・猫・うさぎ・小鳥・小動物・爬虫類など、いろいろな動物と暮らす人、動物が好きな人のためのアプリです。</p>
-      </div>
-      <div class="groups">
-        <div class="group reveal">
-          <h3><span class="ic o"><svg aria-hidden="true"><use href="#i-heart"/></svg></span>うちの子を見せ合う</h3>
-          <ul>
-            <li><b>ペット自慢</b><span>うちの子の写真を投稿して、見せ合えます。「かわいい」「おもしろい」「癒される」で気持ちを送れます。</span></li>
-            <li><b>週間ランキング</b><span>動物の種類ごとに見られるので、犬や猫以外の子も1位になれます。</span></li>
-            <li><b>思い出の日</b><span>1週間前・1か月前・1年前の今日に投稿した、うちの子の写真がホームに出ます。</span></li>
-            <li><b>画像にしてシェア</b><span>自分の投稿を、ロゴ入りの画像にしてSNSでシェアできます。</span></li>
-            <li><b>バッジ</b><span>登録や投稿で、バッジがもらえます。</span></li>
-          </ul>
+            <div class="appnav" id="demo-nav"><span class="on"><svg><use href="#n-home"/></svg>ホーム</span><span><svg><use href="#n-pets"/></svg>どうぶつマップ</span><span><svg><use href="#n-event"/></svg>イベント</span><span><svg><use href="#n-chat"/></svg>チャット</span><span><svg><use href="#n-person"/></svg>マイページ</span></div>
+          </div>
         </div>
-        <div class="group reveal">
-          <h3><span class="ic g"><svg aria-hidden="true"><use href="#i-home"/></svg></span>保護された子とつながる</h3>
-          <ul>
-            <li><b>里親募集</b><span>新しい家族を待っている、保護された動物たちの情報を見られます。</span></li>
-            <li><b>保護団体のお知らせ・活動報告</b><span>譲渡会の告知やお礼など、保護団体が自分で出すお知らせを見られます。</span></li>
-            <li><b>ボランティア募集</b><span>保護団体のボランティア募集を見られます。</span></li>
-            <li><b>迷子の情報</b><span>迷子になった動物の情報を、みんなで見られます。</span></li>
-          </ul>
-        </div>
-        <div class="group reveal">
-          <h3><span class="ic y"><svg aria-hidden="true"><use href="#i-book"/></svg></span>毎日の暮らしに役立つ</h3>
-          <ul>
-            <li><b>うちの子の記録帳</b><span>体重・ワクチン・薬・通院を記録できます。体重はグラフで見られ、次の予定日が近づくとホームでお知らせします。記録は本人だけが見られます。</span></li>
-            <li><b>質問掲示板</b><span>飼い方の疑問を、動物好きどうしで聞き合えます。</span></li>
-            <li><b>動物病院を探せるマップ</b><span>動物病院を、マップで探せます。</span></li>
-            <li><b>どうぶつマップ</b><span>団体・里親募集・迷子・ボランティアを、ことばや都道府県で探せます。</span></li>
-          </ul>
-        </div>
-        <div class="group reveal">
-          <h3><span class="ic p"><svg aria-hidden="true"><use href="#i-people"/></svg></span>みんなで集まる</h3>
-          <ul>
-            <li><b>イベント</b><span>動物好きどうしで集まるイベントに参加したり、開いたりできます。</span></li>
-            <li><b>参加者のグループチャット</b><span>動物のスタンプや写真を送れます。日にちの投票や、写真がたまる思い出アルバムもあります。</span></li>
-          </ul>
-        </div>
+        <p class="demo-note">画面はイメージです。開発中のため、変わることがあります。</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- 安心のしくみ -->
-  <section class="safety" id="safety" aria-labelledby="safety-title">
-    <div class="wrap">
-      <div class="sec-head reveal">
-        <span class="kicker">安心のしくみ</span>
-        <h2 id="safety-title">安心して使えるように</h2>
-        <p>だれもが気持ちよく、動物の話を楽しめるように作っています。</p>
-      </div>
-      <div class="safe-grid">
-        <div class="safe reveal"><svg aria-hidden="true"><use href="#i-shield"/></svg><b>ひどい言葉をふせぐ</b><p>ひどい言葉や連絡先を投稿できないようにする、安全のしくみを入れています。</p></div>
-        <div class="safe reveal"><svg aria-hidden="true"><use href="#i-block"/></svg><b>ブロック</b><p>ブロックした相手からは、メッセージが届きません。だれをブロックしたかは、ほかの人には見えません。</p></div>
-        <div class="safe reveal"><svg aria-hidden="true"><use href="#i-user"/></svg><b>年齢は年代だけ</b><p>プロフィールの年齢は「20代」のような年代だけを見せます。生年月日は本人しか見られません。</p></div>
-        <div class="safe reveal"><svg aria-hidden="true"><use href="#i-flag"/></svg><b>通報できる</b><p>気になる投稿やコメントは、アプリの中から通報できます。運営が内容を確かめて対応します。</p></div>
-        <div class="safe reveal"><svg aria-hidden="true"><use href="#i-lock"/></svg><b>記録は本人だけ</b><p>うちの子の記録帳は、本人だけが見られます。</p></div>
-        <div class="safe reveal"><svg aria-hidden="true"><use href="#i-book"/></svg><b>みんなの約束</b><p>使うときのきまりは、<a href="terms.html">利用規約</a>にまとめています。</p></div>
-      </div>
+<!-- 安心のしくみ -->
+<section class="section tint" id="safety" aria-labelledby="s-title">
+  <div class="wrap">
+    <div class="head reveal"><span class="kicker">安心のしくみ</span><h2 id="s-title">だれもが、気持ちよく。</h2><p>動物の話を安心して楽しめるように、守るしくみを入れています。</p></div>
+    <div class="trust">
+      <div class="reveal"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v6c0 4.4-3 7.6-7 9-4-1.4-7-4.6-7-9V6z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></span><h3>ひどい言葉をふせぐ</h3><p>ひどい言葉や連絡先を投稿できないようにする、安全のしくみを入れています。</p></div>
+      <div class="reveal"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="2"/><path d="M6.5 6.5l11 11" stroke="currentColor" stroke-width="2"/></svg></span><h3>ブロック</h3><p>ブロックした相手からは、メッセージが届きません。だれをブロックしたかは、ほかの人には見えません。</p></div>
+      <div class="reveal"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 20c.8-4 4-6 8-6s7.2 2 8 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span><h3>年齢は年代だけ</h3><p>プロフィールの年齢は「20代」のような年代だけを見せます。生年月日は本人しか見られません。</p></div>
+      <div class="reveal"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 21V4h11l-2 4 2 4H5" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></svg></span><h3>通報できる</h3><p>気になる投稿やコメントは、アプリの中から通報できます。運営が内容を確かめて対応します。</p></div>
+      <div class="reveal"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10" width="14" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3" fill="none" stroke="currentColor" stroke-width="2"/></svg></span><h3>記録は本人だけ</h3><p>うちの子の記録帳は、本人だけが見られます。</p></div>
+      <div class="reveal"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h10a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3zM5 17a3 3 0 0 1 3-3h10" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></span><h3>みんなの約束</h3><p>使うときのきまりは、<a href="terms.html">利用規約</a>にまとめています。</p></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- 保護団体の方へ -->
-  <section class="orgs" id="orgs" aria-labelledby="orgs-title">
-    <div class="wrap">
-      <div class="box">
-        <div class="reveal">
-          <span class="kicker">保護団体の方へ</span>
-          <h2 id="orgs-title">保護された子たちのことを、もっと多くの人へ。</h2>
-          <p>AniMatchは、保護団体の活動を、動物と暮らす人・動物好きの人に届けたいと考えています。団体での登録や使い方について、くわしく知りたい方は、お気軽にご連絡ください。</p>
-          <a class="btn light" href="#contact">お問い合わせ</a>
-        </div>
-        <ul class="reveal">
-          <li><svg aria-hidden="true"><use href="#i-mega"/></svg><b>お知らせ・活動報告を出せる</b><span>譲渡会の告知やお礼などを、団体が自分で出せます。</span></li>
-          <li><svg aria-hidden="true"><use href="#i-heart"/></svg><b>里親募集・ボランティア募集</b><span>新しい家族やお手伝いしてくれる人を募集できます。</span></li>
-          <li><svg aria-hidden="true"><use href="#i-pin"/></svg><b>どうぶつマップで見つけてもらえる</b><span>ことばや都道府県で、団体や募集を探してもらえます。</span></li>
-          <li><svg aria-hidden="true"><use href="#i-share"/></svg><b>画像にしてシェア</b><span>里親募集を、ロゴ入りの画像にしてSNSでシェアできます。</span></li>
+<!-- 使う人ごとに -->
+<section class="section" id="plans" aria-labelledby="pl-title">
+  <div class="wrap">
+    <div class="head reveal"><span class="kicker">使う人ごとに</span><h2 id="pl-title">使う人ごとに、できること</h2></div>
+    <div class="plans">
+      <div class="plan reveal">
+        <span class="who">動物と暮らす人</span>
+        <div class="price">無料</div>
+        <p class="desc">うちの子の写真を見せ合ったり、毎日の記録をつけたり。</p>
+        <ul>
+          <li><svg aria-hidden="true"><use href="#i-tick"/></svg>ペット自慢・週間ランキング</li>
+          <li><svg aria-hidden="true"><use href="#i-tick"/></svg>うちの子の記録帳・思い出の日</li>
+          <li><svg aria-hidden="true"><use href="#i-tick"/></svg>質問掲示板・イベント</li>
         </ul>
+        <a class="btn btn-ghost" href="#features">できることを見る</a>
+      </div>
+      <div class="plan hl reveal" id="orgs-plan">
+        <span class="badge">保護団体の方へ</span>
+        <span class="who">保護団体</span>
+        <div class="price">無料</div>
+        <p class="desc">保護された子たちのことや活動を、動物好きの人に届けられます。</p>
+        <ul>
+          <li><svg aria-hidden="true"><use href="#i-tick"/></svg>お知らせ・活動報告を自分で出せる</li>
+          <li><svg aria-hidden="true"><use href="#i-tick"/></svg>里親募集・ボランティア募集</li>
+          <li><svg aria-hidden="true"><use href="#i-tick"/></svg>どうぶつマップで見つけてもらえる</li>
+          <li><svg aria-hidden="true"><use href="#i-tick"/></svg>里親募集を画像にしてSNSでシェア</li>
+        </ul>
+        <a class="btn btn-primary" href="#contact">団体での使い方を聞く</a>
+      </div>
+      <div class="plan reveal">
+        <span class="who">動物が好きな人</span>
+        <div class="price">無料</div>
+        <p class="desc">飼っていなくても大丈夫。動物のそばにいられます。</p>
+        <ul>
+          <li><svg aria-hidden="true"><use href="#i-tick"/></svg>里親募集・迷子の情報を見る</li>
+          <li><svg aria-hidden="true"><use href="#i-tick"/></svg>ボランティア募集を探す</li>
+          <li><svg aria-hidden="true"><use href="#i-tick"/></svg>みんなのペット自慢を楽しむ</li>
+        </ul>
+        <a class="btn btn-ghost" href="#demo">使い方を見る</a>
       </div>
     </div>
-  </section>
+    <p class="plan-note">2027年2月公開予定。お金のことが変わるときは、利用規約でお知らせします。</p>
+  </div>
+</section>
 
-  <!-- よくある質問 -->
-  <section id="faq" aria-labelledby="faq-title">
-    <div class="wrap">
-      <div class="sec-head reveal">
-        <span class="kicker">よくある質問</span>
-        <h2 id="faq-title">よくある質問</h2>
-      </div>
-      <div class="faq">
-        <details><summary>いつから使えますか？</summary><p>2027年2月公開予定です。公開したら、このページでお知らせします。</p></details>
-        <details><summary>どんな動物と暮らしている人が使えますか？</summary><p>犬・猫・うさぎ・小鳥・小動物・爬虫類など、いろいろな動物と暮らす人に使ってほしいアプリです。ランキングも動物の種類ごとに見られます。</p></details>
-        <details><summary>動物を飼っていなくても使えますか？</summary><p>はい。動物が好きな方に使ってほしいアプリです。里親募集やボランティア募集を見たり、保護団体のお知らせを読んだり、みんなのペット自慢を楽しんだりできます。</p></details>
-        <details><summary>保護団体として使えますか？</summary><p>はい。お知らせ・活動報告や、里親募集・ボランティア募集を出せます。くわしくは <a href="#contact">お問い合わせ</a> からご連絡ください。</p></details>
-        <details><summary>安心して使えますか？</summary><p>ひどい言葉や連絡先を投稿できないしくみ、ブロック、通報などを入れています。くわしくは <a href="#safety">安心のしくみ</a> をご覧ください。</p></details>
-        <details><summary>だれが作っていますか？</summary><p>個人で開発しています。ご意見やご感想は、<a href="#contact">お問い合わせ</a> からお寄せください。</p></details>
-      </div>
-    </div>
-  </section>
+<!-- お知らせ -->
+<section class="section tint" id="news" aria-labelledby="n-title">
+  <div class="wrap">
+    <div class="head reveal"><span class="kicker">お知らせ</span><h2 id="n-title">開発のようす</h2></div>
+    <ul class="news reveal">
+      <li><time datetime="2026-11-09">2026.11.09</time><span class="cat">お知らせ</span><p>ホームページを公開しました。</p></li>
+      <li><time datetime="2026-11-02">2026.11.02</time><span class="cat dev">開発</span><p>うちの子の記録帳を入れました（体重のグラフ、ワクチンや薬の次の予定日）。</p></li>
+      <li><time datetime="2026-11-02">2026.11.02</time><span class="cat dev">開発</span><p>保護団体が、お知らせや活動報告を自分で出せる場所を作りました。</p></li>
+      <li><time datetime="2026-11-02">2026.11.02</time><span class="cat dev">開発</span><p>1年前の今日のうちの子が、ホームに出る「思い出の日」を作りました。</p></li>
+      <li><time datetime="2026-11-01">2026.11.01</time><span class="cat dev">開発</span><p>ランキングを、動物の種類ごとに見られるようにしました。</p></li>
+    </ul>
+  </div>
+</section>
 
-  <!-- お問い合わせ -->
-  <section class="contact" id="contact" aria-labelledby="contact-title">
-    <div class="wrap">
-      <div class="card reveal">
-        <div class="sec-head" style="margin-bottom:0">
-          <span class="kicker">お問い合わせ</span>
-          <h2 id="contact-title">お気軽にご連絡ください</h2>
-        </div>
-        <div class="mail">
-          <a href="mailto:animatch.jp@gmail.com">animatch.jp@gmail.com</a>
-          <button class="copy" type="button" data-copy="animatch.jp@gmail.com">コピー</button>
-        </div>
-        <small>AniMatch運営</small>
-        <small>お返事まで、数日いただくことがあります。</small>
-      </div>
+<!-- よくある質問 -->
+<section class="section" id="faq" aria-labelledby="q-title">
+  <div class="wrap faq-wrap">
+    <div class="faq-side reveal">
+      <h2 id="q-title">よくある質問</h2>
+      <p>ほかに気になることは、お問い合わせからお気軽にどうぞ。</p>
+      <svg class="animaru wave " viewBox="0 0 200 200" aria-hidden="true"><ellipse cx="100" cy="184" rx="52" ry="7" fill="#000" opacity=".08"/><g class="am-body"><g fill="#4E8A6E"><circle cx="70" cy="58" r="11"/><circle cx="92" cy="48" r="12"/><circle cx="114" cy="50" r="11"/><circle cx="133" cy="60" r="9"/></g><path d="M100 58C140 58 164 88 164 124C164 158 138 178 100 178C62 178 36 158 36 124C36 88 60 58 100 58Z" fill="#E8845A"/><ellipse cx="40" cy="138" rx="9" ry="12" transform="rotate(25 40 138)" fill="#E8845A"/><g class="am-arm-r"><ellipse cx="160" cy="128" rx="9" ry="12" transform="rotate(-60 160 128)" fill="#E8845A"/></g><ellipse cx="82" cy="178" rx="13" ry="7" fill="#D9744C"/><ellipse cx="118" cy="178" rx="13" ry="7" fill="#D9744C"/><ellipse cx="62" cy="134" rx="9" ry="6" fill="#F9C3A9"/><ellipse cx="138" cy="134" rx="9" ry="6" fill="#F9C3A9"/><g class="am-eyes" fill="#2E2018"><circle cx="81" cy="120" r="5"/><circle cx="119" cy="120" r="5"/></g><path d="M94 134Q100 139 106 134" fill="none" stroke="#2E2018" stroke-width="3" stroke-linecap="round"/></g></svg>
     </div>
-  </section>
+    <div class="faq">
+      <details><summary>いつから使えますか？</summary><p>2027年2月公開予定です。公開したら、このページのお知らせでお伝えします。</p></details>
+      <details><summary>どんな動物と暮らしている人が使えますか？</summary><p>犬・猫・うさぎ・小鳥・小動物・爬虫類など、いろいろな動物と暮らす人に使ってほしいアプリです。ランキングも動物の種類ごとに見られます。</p></details>
+      <details><summary>動物を飼っていなくても使えますか？</summary><p>はい。動物が好きな方に使ってほしいアプリです。里親募集やボランティア募集を見たり、保護団体のお知らせを読んだり、みんなのペット自慢を楽しんだりできます。</p></details>
+      <details><summary>保護団体として使えますか？</summary><p>はい。お知らせ・活動報告や、里親募集・ボランティア募集を出せます。くわしくは<a href="#contact">お問い合わせ</a>からご連絡ください。</p></details>
+      <details><summary>「あにまる」ってだれですか？</summary><p>アプリの中で使い方を案内してくれる、AniMatchのキャラクターです。おもちのような、なにものでもない生き物です。</p></details>
+      <details><summary>だれが作っていますか？</summary><p>個人で開発しています。ご意見やご感想は、<a href="#contact">お問い合わせ</a>からお寄せください。</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- お問い合わせ・運営者情報 -->
+<section id="contact" aria-labelledby="c-title">
+  <div class="wrap contact">
+    <div class="cbox reveal">
+      <h2 id="c-title">お気軽に、<br>ご連絡ください。</h2>
+      <p>アプリについてのご質問、保護団体での使い方、ご意見・ご感想をお待ちしています。</p>
+      <div class="mail"><a href="mailto:animatch.jp@gmail.com">animatch.jp@gmail.com</a><button class="copy" type="button" data-copy="animatch.jp@gmail.com">コピー</button></div>
+      <small>お返事まで、数日いただくことがあります。</small>
+      <svg class="animaru happy " viewBox="0 0 200 200" aria-hidden="true"><ellipse cx="100" cy="184" rx="52" ry="7" fill="#000" opacity=".08"/><g class="am-body"><g fill="#4E8A6E"><circle cx="70" cy="58" r="11"/><circle cx="92" cy="48" r="12"/><circle cx="114" cy="50" r="11"/><circle cx="133" cy="60" r="9"/></g><path d="M100 58C140 58 164 88 164 124C164 158 138 178 100 178C62 178 36 158 36 124C36 88 60 58 100 58Z" fill="#E8845A"/><g class="am-arm-l"><ellipse cx="42" cy="112" rx="9" ry="12" transform="rotate(40 42 112)" fill="#E8845A"/></g><g class="am-arm-r"><ellipse cx="158" cy="112" rx="9" ry="12" transform="rotate(-40 158 112)" fill="#E8845A"/></g><ellipse cx="82" cy="178" rx="13" ry="7" fill="#D9744C"/><ellipse cx="118" cy="178" rx="13" ry="7" fill="#D9744C"/><ellipse cx="62" cy="134" rx="9" ry="6" fill="#F9C3A9"/><ellipse cx="138" cy="134" rx="9" ry="6" fill="#F9C3A9"/><g fill="none" stroke="#2E2018" stroke-width="3" stroke-linecap="round"><path d="M75 122Q81 113 87 122"/><path d="M113 122Q119 113 125 122"/></g><path d="M92 133Q100 146 108 133Z" fill="#2E2018"/><ellipse cx="100" cy="140" rx="4" ry="2" fill="#E7737F"/></g></svg>
+    </div>
+    <div class="info reveal">
+      <dl>
+        <div><dt>サービス名</dt><dd>AniMatch（アニマッチ）</dd></div>
+        <div><dt>内容</dt><dd>動物好きのコミュニティアプリ</dd></div>
+        <div><dt>運営</dt><dd>AniMatch運営（個人で開発しています）</dd></div>
+        <div><dt>公開予定</dt><dd>2027年2月</dd></div>
+        <div><dt>お問い合わせ</dt><dd>animatch.jp@gmail.com</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
 </main>
 
-<footer>
+<footer class="site-footer">
   <div class="wrap">
-    <img src="assets/logo.png" alt="AniMatch" width="681" height="126">
-    <div class="links">
-      <a href="terms.html">利用規約</a>
-      <a href="https://animatch-jp.github.io/animatch-privacy/">プライバシーポリシー</a>
-      <a href="#contact">お問い合わせ</a>
+    <div class="top">
+      <div class="brand"><img src="assets/logo.png" alt="AniMatch" width="681" height="126"><p>動物好きのコミュニティアプリ｜2027年2月公開予定</p></div>
+      <nav class="fnav" aria-label="フッター">
+        <div><b>アプリ</b><a href="#features">できること</a><a href="#demo">使い方</a><a href="#safety">安心のしくみ</a><a href="#news">お知らせ</a></div>
+        <div><b>サポート</b><a href="#faq">よくある質問</a><a href="#contact">お問い合わせ</a><a href="#orgs-plan">保護団体の方へ</a></div>
+        <div><b>きまり</b><a href="terms.html">利用規約</a><a href="https://animatch-jp.github.io/animatch-privacy/">プライバシーポリシー</a></div>
+      </nav>
     </div>
-    <div>© 2026 AniMatch運営</div>
+    <p class="credit">写真：<a href="https://unsplash.com/@lerston?utm_source=animatch&utm_medium=referral">Ivan Yerokhin</a>、<a href="https://unsplash.com/@jamie452?utm_source=animatch&utm_medium=referral">Jamie Street</a>、<a href="https://unsplash.com/@emilianovittoriosi?utm_source=animatch&utm_medium=referral">Emiliano Vittoriosi</a>、<a href="https://unsplash.com/@elizabethrova?utm_source=animatch&utm_medium=referral">Elizabeth R.</a>、<a href="https://unsplash.com/@sweetmangostudios?utm_source=animatch&utm_medium=referral">Ricky Kharawala</a>、<a href="https://unsplash.com/@fukayamamo?utm_source=animatch&utm_medium=referral">Suri Huang</a>、<a href="https://unsplash.com/@escape_your_mind?utm_source=animatch&utm_medium=referral">Michael G</a>、<a href="https://unsplash.com/@nitanggraeni?utm_source=animatch&utm_medium=referral">Nita Anggraeni Goenawan</a>、<a href="https://unsplash.com/@alvannee?utm_source=animatch&utm_medium=referral">Alvan Nee</a>、<a href="https://unsplash.com/@sadmax?utm_source=animatch&utm_medium=referral">Amber Kipp</a>、<a href="https://unsplash.com/@slodkiewiczjaroslawmunich?utm_source=animatch&utm_medium=referral">Jaroslaw Slodkiewicz</a>、<a href="https://unsplash.com/@craigpattenaude?utm_source=animatch&utm_medium=referral">Craig Pattenaude</a>、<a href="https://unsplash.com/@ugsdreamer?utm_source=animatch&utm_medium=referral">Ursula Gamez</a>、<a href="https://unsplash.com/@andyjh07?utm_source=animatch&utm_medium=referral">Andy Holmes</a>、<a href="https://unsplash.com/@janoschphotos?utm_source=animatch&utm_medium=referral">Janosch Jost</a>、<a href="https://unsplash.com/@godling?utm_source=animatch&utm_medium=referral">Zhaoli JIN</a>（<a href="https://unsplash.com/?utm_source=animatch&utm_medium=referral">Unsplash</a>）。アプリの画面は、写真を使ったイメージです。</p>
+    <p class="copy-r">© 2026 AniMatch運営</p>
   </div>
 </footer>
 
 <script>
 (function(){
-  var h=document.querySelector('header');
-  function onScroll(){h.classList.toggle('scrolled',window.scrollY>8)}
-  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  /* メニュー */
+  var mb=document.querySelector('.menu-btn'),nav=document.getElementById('gnav');
+  mb.addEventListener('click',function(){var o=mb.getAttribute('aria-expanded')!=='true';mb.setAttribute('aria-expanded',o);nav.classList.toggle('open',o)});
+  nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){mb.setAttribute('aria-expanded','false');nav.classList.remove('open')})});
+
+  /* 大見出し：動物の名前と、スマホの写真がいっしょに入れかわる */
+  var roll=document.getElementById('roll'),track=document.getElementById('track'),words=track.children,i=0;
+  var feed=document.querySelectorAll('#feed img'),kind=document.getElementById('feed-kind'),fname=document.getElementById('feed-name'),fava=document.getElementById('feed-ava');
+  var names={cat:'むぎ',dog:'こむぎ',rabbit:'もち',bird:'そら',hamster:'だいふく',gecko:'レモン',puppy:'ポチ'};
+  var kinds={cat:'猫',dog:'犬',rabbit:'うさぎ',bird:'小鳥',hamster:'小動物',gecko:'爬虫類',puppy:'犬'};
+  function show(n){
+    var w=words[n].getBoundingClientRect().width;roll.style.width=Math.ceil(w)+'px';
+    track.style.transform='translateY('+(-n*100/words.length)+'%)';
+    var k=words[n].getAttribute('data-k');
+    feed.forEach(function(im){im.classList.toggle('on',im.getAttribute('data-k')===k)});
+    kind.textContent=kinds[k];fname.textContent=names[k];fava.src='assets/photos/t/'+k+'.jpg';
+  }
+  function tick(){var last=i===words.length-1;setTimeout(function(){i=(i+1)%words.length;show(i);tick()},last?3600:2200)}
+  function start(){show(0);if(!reduce)tick()}
+  if(document.fonts&&document.fonts.ready){document.fonts.ready.then(start)}else{start()}
+  addEventListener('resize',function(){show(i)});
+
+  /* 気持ちのボタン */
+  document.querySelectorAll('.reacts').forEach(function(g){
+    g.querySelectorAll('button').forEach(function(b){
+      b.addEventListener('click',function(){b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')==='true'?'false':'true')});
+    });
+  });
+
+  /* ランキング：動物の種類を切りかえる */
+  var sets=[['hamster','だいふく','guinea','くるみ','hamster2','しらたま'],['puppy','ポチ','dog','こむぎ','shelter','きなこ'],['cat','むぎ','cat2','ミルク','cat3','とら'],['bird','そら','cockatiel','ぴぃ','budgie','あお'],['gecko','レモン','tortoise','カメきち','gecko2','ゆず']];
+  var faces=document.querySelectorAll('.podium .face img'),nms=document.querySelectorAll('.podium .nm');
+  var order=[0,1,2]; /* 2位・1位・3位の順に並んでいる */
+  document.querySelectorAll('.kinds-row button').forEach(function(b){
+    b.addEventListener('click',function(){
+      document.querySelectorAll('.kinds-row button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});
+      var s=sets[+b.getAttribute('data-set')];
+      var place=[2,0,4]; /* 2位→s[2..], 1位→s[0..], 3位→s[4..] */
+      faces.forEach(function(im,j){im.style.opacity=0;setTimeout(function(){im.src='assets/photos/t/'+s[place[j]]+'.jpg';nms[j].textContent=s[place[j]+1];im.style.opacity=1},200)});
+    });
+  });
+
+  /* 使い方のタブ */
+  var tabs=[].slice.call(document.querySelectorAll('.seg [role=tab]')),navs=document.querySelectorAll('#demo-nav span');
+  var navIdx={'v-home':0,'v-map':1,'v-org':4};
+  function select(t){
+    tabs.forEach(function(x){var on=x===t;x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;document.getElementById(x.getAttribute('aria-controls')).hidden=!on;document.getElementById(x.getAttribute('data-view')).hidden=!on});
+    navs.forEach(function(s,j){s.classList.toggle('on',j===navIdx[t.getAttribute('data-view')])});
+  }
+  tabs.forEach(function(t,n){
+    t.addEventListener('click',function(){select(t)});
+    t.addEventListener('keydown',function(e){var m=null;if(e.key==='ArrowRight')m=tabs[(n+1)%tabs.length];if(e.key==='ArrowLeft')m=tabs[(n-1+tabs.length)%tabs.length];if(m){e.preventDefault();m.focus();select(m)}});
+  });
+
+  /* スクロールで出てくる */
   var els=document.querySelectorAll('.reveal');
-  if('IntersectionObserver' in window){
-    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -40px 0px'});
+  if('IntersectionObserver' in window&&!reduce){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');if(e.target.id==='rec')e.target.classList.add('on');io.unobserve(e.target)}})},{rootMargin:'0px 0px -60px 0px'});
     els.forEach(function(el){io.observe(el)});
-  }else{els.forEach(function(el){el.classList.add('in')})}
+  }else{els.forEach(function(el){el.classList.add('in')});document.getElementById('rec').classList.add('on')}
 
+  /* メールのコピー */
   document.querySelectorAll('.copy').forEach(function(b){
     b.addEventListener('click',function(){
       var t=b.getAttribute('data-copy');
       function done(){b.textContent='コピーしました';setTimeout(function(){b.textContent='コピー'},1800)}
-      try{navigator.clipboard.writeText(t).then(done,function(){b.textContent='長押しでコピーしてください'})}
-      catch(e){b.textContent='長押しでコピーしてください'}
+      try{navigator.clipboard.writeText(t).then(done,function(){b.textContent='長押しでコピーしてください'})}catch(e){b.textContent='長押しでコピーしてください'}
     });
   });
 })();
