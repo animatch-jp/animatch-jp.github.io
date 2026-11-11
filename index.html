@@ -399,18 +399,35 @@ button{font-family:inherit}
 .info{border-radius:var(--r-xl);background:#fff;box-shadow:0 0 0 1px var(--line) inset;padding:12px 32px}
 .info dl{margin:0}
 .contact>*{min-width:0}
-.info dd{overflow-wrap:anywhere}
+.info dd{overflow-wrap:anywhere;word-break:auto-phrase}
 .info div{display:grid;grid-template-columns:7.5em minmax(0,1fr);gap:16px;padding:18px 0;border-bottom:1px solid var(--line);font-size:15px}
 .info div:last-child{border-bottom:0}
 .info dt{color:var(--ink-3);font-weight:700}
 .info dd{margin:0}
-@media (max-width:640px){.info{padding:8px 20px}.info div{grid-template-columns:6em minmax(0,1fr);gap:10px}.seg button{font-size:14px;padding:10px 12px}}
+@media (max-width:640px){.info{padding:8px 20px}.info div{grid-template-columns:6.6em minmax(0,1fr);gap:10px}.info dt{white-space:nowrap}.seg button{font-size:14px;padding:10px 12px}}
 @media (max-width:960px){.contact{grid-template-columns:1fr}.cbox{padding:32px 26px 150px}.cbox .animaru{width:120px;height:120px;right:20px}}
 
 
 
+
+/* ===== 安心のしくみ（読みものの形） ===== */
+.safety{display:grid;grid-template-columns:.9fr 1.1fr;gap:80px;align-items:start}
+.s-side{position:sticky;top:112px}
+.s-side .kicker{font-size:14px;font-weight:700;color:var(--orange-d)}
+.s-side h2{font-size:clamp(30px,4vw,52px);font-weight:900;line-height:1.3;margin-top:12px}
+.s-side>p{color:var(--ink-2);font-size:17px;margin-top:18px}
+.s-side img{margin-top:36px;width:100%;aspect-ratio:4/3;height:auto;object-fit:cover;object-position:50% 30%;border-radius:var(--r-xl)}
+.s-list{list-style:none;margin:0;padding:0;border-top:1px solid #E2DDD6}
+.s-list li{display:grid;grid-template-columns:64px 1fr;padding:30px 0;border-bottom:1px solid #E2DDD6}
+.s-list .n{font-size:15px;font-weight:700;color:var(--orange-d);padding-top:3px;letter-spacing:.06em}
+.s-list h3{font-size:21px;font-weight:900;line-height:1.5}
+.s-list p{font-size:15px;color:var(--ink-2);margin-top:6px}
+.dhead{margin-bottom:32px}.dhead .kicker{font-size:14px;font-weight:700;color:var(--orange-d)}.dhead h2{font-size:clamp(30px,3.6vw,46px);font-weight:900;line-height:1.3;margin-top:10px}.dhead p{color:var(--ink-2);margin-top:12px}.dhead .sp{display:none}
+@media (max-width:960px){.dhead .pc{display:none}.dhead .sp{display:inline}}
+@media (max-width:960px){.safety{grid-template-columns:1fr;gap:36px}.s-side{position:static}.s-side img{aspect-ratio:16/9}.s-list li{grid-template-columns:48px 1fr;padding:24px 0}.s-list h3{font-size:18px}}
+
 /* ===== いろいろな動物（曲がって並ぶ写真） ===== */
-.ring-sec{overflow:hidden;padding-bottom:96px}
+.ring-sec{overflow:hidden;padding-bottom:40px}
 .ring-sec .head{margin-bottom:0}
 .ring-stage{--R:780px;--cw:250px;position:relative;height:400px;perspective:1000px;perspective-origin:50% 50%;touch-action:pan-y;cursor:grab;user-select:none;-webkit-user-select:none}
 .ring-stage.drag{cursor:grabbing}
@@ -426,7 +443,7 @@ button{font-family:inherit}
 .rbtn:hover{box-shadow:0 0 0 1.5px var(--ink) inset}
 .rbtn:active{transform:scale(.94)}
 .rbtn svg{width:18px;height:18px}
-@media (max-width:640px){.ring-stage{--R:440px;--cw:140px;height:270px;perspective:620px}.rc{border-radius:16px}.rc-cap{padding:7px 10px 9px}.rc-cap b{font-size:14px}.rc-cap small{font-size:10px}.ring-sec{padding-bottom:72px}}
+@media (max-width:640px){.ring-stage{--R:500px;--cw:168px;height:330px;perspective:700px}.rc{border-radius:16px}.rc-cap{padding:7px 10px 9px}.rc-cap b{font-size:14px}.rc-cap small{font-size:10px}.ring-sec{padding-bottom:24px}}
 
 /* ===== 保護団体・動物病院の方へ ===== */
 .partners{background:var(--green);color:#fff;position:relative;overflow:hidden}
@@ -475,7 +492,7 @@ button{font-family:inherit}
 .cbox .mail{margin-top:26px;padding-top:20px;border-top:1px solid rgba(255,255,255,.3)}
 .cbox .mail span{font-size:13px;font-weight:700;opacity:.85}
 .cbox .mail a{font-size:clamp(18px,2vw,22px)}
-.cbox .animaru{top:26px;bottom:auto;right:26px;width:120px;height:120px}
+.cbox .animaru{top:24px;bottom:auto;right:24px;width:124px;height:124px;padding:12px 10px 8px;border-radius:50%;background:#FFF8F5;box-shadow:0 12px 28px -14px rgba(120,50,20,.55)}
 .side{display:grid;gap:20px;align-content:start;min-width:0}
 .sns{border-radius:var(--r-xl);background:var(--surface);padding:30px 32px}
 .sns h3{font-size:18px;font-weight:900}
@@ -546,7 +563,7 @@ button{font-family:inherit}
   <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M16 16l4 4" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></symbol>
   <symbol id="i-house" viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M12 17.5s-3.2-1.9-3.2-4a1.8 1.8 0 0 1 3.2-1.1 1.8 1.8 0 0 1 3.2 1.1c0 2.1-3.2 4-3.2 4z" fill="currentColor"/></symbol>
   <symbol id="i-clinic" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 8v8M8 12h8" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></symbol>
-  <symbol id="i-threads" viewBox="0 0 24 24"><path d="M16.6 11.2c-.1 0-.2-.1-.3-.1-.2-2.8-1.7-4.4-4.3-4.4-1.6 0-2.9.7-3.7 1.9l1.4 1c.6-.9 1.5-1.1 2.3-1.1 1 0 1.7.3 2.1.9.3.4.5 1 .6 1.7-.8-.1-1.6-.2-2.5-.1-2.5.1-4.1 1.6-4 3.6.1 1 .6 1.9 1.4 2.4.7.5 1.6.7 2.6.6 1.3-.1 2.2-.5 2.9-1.4.5-.7.8-1.5.9-2.6.6.4 1.1.9 1.3 1.5.4 1 .4 2.6-.9 3.9-1.2 1.2-2.5 1.6-4.5 1.6-2.2 0-3.9-.7-5-2.1-1-1.3-1.6-3.2-1.6-5.6s.5-4.3 1.6-5.6c1.1-1.4 2.8-2.1 5-2.1s3.9.7 5.1 2.1c.6.7 1 1.5 1.3 2.5l1.7-.4c-.3-1.2-.9-2.3-1.6-3.2C17.1 2.9 15 2 12.3 2c-2.7 0-4.8.9-6.2 2.7C4.8 6.3 4.2 8.5 4.2 11.3s.6 5 1.9 6.6c1.4 1.8 3.5 2.7 6.2 2.7 2.4 0 4.1-.6 5.5-2 1.9-1.9 1.8-4.2 1.2-5.6-.4-1-1.3-1.8-2.4-2.3zm-4.3 4.6c-1.1.1-2.2-.4-2.2-1.4 0-.8.5-1.6 2.4-1.7h.6c.7 0 1.3.1 1.9.2-.2 2.4-1.4 2.8-2.7 2.9z" fill="currentColor"/></symbol>
+  <symbol id="i-threads" viewBox="0 0 24 24"><path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.03-3.579.879-6.43 2.525-8.482C5.845 1.205 8.6.024 12.18 0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.29 2.858 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.304-6.015-2.91.022-5.11.936-6.54 2.717C4.307 6.504 3.616 8.914 3.589 12c.027 3.086.718 5.496 2.057 7.164 1.43 1.783 3.631 2.698 6.54 2.717 2.623-.02 4.358-.631 5.8-2.045 1.647-1.613 1.618-3.593 1.09-4.798-.31-.71-.873-1.3-1.634-1.75-.192 1.352-.622 2.446-1.284 3.272-.886 1.102-2.14 1.704-3.73 1.79-1.202.065-2.361-.218-3.259-.801-1.063-.689-1.685-1.74-1.752-2.964-.065-1.19.408-2.285 1.33-3.082.88-.76 2.119-1.207 3.583-1.291a13.853 13.853 0 0 1 3.02.142c-.126-.742-.375-1.332-.75-1.757-.513-.586-1.308-.883-2.359-.89h-.029c-.844 0-1.992.232-2.721 1.32L7.734 7.847c.98-1.454 2.568-2.256 4.478-2.256h.044c3.194.02 5.097 1.975 5.287 5.388.108.046.216.094.321.142 1.49.7 2.58 1.761 3.154 3.07.797 1.82.871 4.79-1.548 7.158-1.85 1.81-4.094 2.628-7.277 2.65Zm1.003-11.69c-.242 0-.487.007-.739.021-1.836.103-2.98.946-2.916 2.143.067 1.256 1.452 1.839 2.784 1.767 1.224-.065 2.818-.543 3.086-3.71a10.5 10.5 0 0 0-2.215-.221z" fill="currentColor"/></symbol>
   <symbol id="i-insta" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5.5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.4" cy="6.6" r="1.3" fill="currentColor"/></symbol>
   <symbol id="i-x" viewBox="0 0 24 24"><path d="M17.8 3h3.1l-6.8 7.7L22 21h-6.2l-4.9-6.4L5.3 21H2.2l7.2-8.3L2 3h6.4l4.4 5.8zm-1.1 16.2h1.7L7.4 4.7H5.6z" fill="currentColor"/></symbol>
   <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 7l8 6 8-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
@@ -593,7 +610,7 @@ button{font-family:inherit}
       <p class="lead">AniMatchは、保護されている動物や保護団体の活動と、動物と暮らす人・動物好きの人をつなぐ、動物好きのコミュニティアプリです。</p>
       <div class="actions">
         <a class="btn btn-primary" href="#features">できることを見る<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
-        <a class="btn btn-ghost" href="#orgs-plan">保護団体の方へ</a>
+        <a class="btn btn-ghost" href="#partners">保護団体・動物病院の方へ</a>
       </div>
       <div class="meta">
         <span><svg aria-hidden="true"><use href="#i-check"/></svg>無料で使えます</span>
@@ -731,22 +748,22 @@ button{font-family:inherit}
   </div>
   <div class="ring-stage" id="ring-stage" aria-roledescription="カルーセル" aria-label="いろいろな動物の写真">
     <ul class="ring" id="ring">
-          <li class="rc"><img src="assets/photos/t/cat.jpg" alt="猫のむぎ" width="480" height="480" loading="lazy" draggable="false"><span class="rc-cap"><b>むぎ</b><small>猫</small></span></li>
-          <li class="rc"><img src="assets/photos/t/hamster.jpg" alt="ハムスターのだいふく" width="480" height="480" loading="lazy" draggable="false"><span class="rc-cap"><b>だいふく</b><small>ハムスター</small></span></li>
-          <li class="rc"><img src="assets/photos/t/dog.jpg" alt="犬のこむぎ" width="480" height="480" loading="lazy" draggable="false"><span class="rc-cap"><b>こむぎ</b><small>犬</small></span></li>
-          <li class="rc"><img src="assets/photos/t/bird.jpg" alt="インコのそら" width="480" height="480" loading="lazy" draggable="false"><span class="rc-cap"><b>そら</b><small>インコ</small></span></li>
-          <li class="rc"><img src="assets/photos/t/rabbit.jpg" alt="うさぎのもち" width="480" height="480" loading="lazy" draggable="false"><span class="rc-cap"><b>もち</b><small>うさぎ</small></span></li>
-          <li class="rc"><img src="assets/photos/t/gecko.jpg" alt="ヒョウモントカゲモドキのレモン" width="480" height="480" loading="lazy" draggable="false"><span class="rc-cap"><b>レモン</b><small>ヒョウモントカゲモドキ</small></span></li>
-          <li class="rc"><img src="assets/photos/t/cat2.jpg" alt="猫のミルク" width="480" height="480" loading="lazy" draggable="false"><span class="rc-cap"><b>ミルク</b><small>猫</small></span></li>
-          <li class="rc"><img src="assets/photos/t/guinea.jpg" alt="モルモットのくるみ" width="480" height="480" loading="lazy" draggable="false"><span class="rc-cap"><b>くるみ</b><small>モルモット</small></span></li>
-          <li class="rc"><img src="assets/photos/t/puppy.jpg" alt="犬のポチ" width="480" height="480" loading="lazy" draggable="false"><span class="rc-cap"><b>ポチ</b><small>犬</small></span></li>
-          <li class="rc"><img src="assets/photos/t/cockatiel.jpg" alt="オカメインコのぴぃ" width="480" height="480" loading="lazy" draggable="false"><span class="rc-cap"><b>ぴぃ</b><small>オカメインコ</small></span></li>
-          <li class="rc"><img src="assets/photos/t/tortoise.jpg" alt="リクガメのカメきち" width="480" height="480" loading="lazy" draggable="false"><span class="rc-cap"><b>カメきち</b><small>リクガメ</small></span></li>
-          <li class="rc"><img src="assets/photos/t/cat3.jpg" alt="猫のとら" width="480" height="480" loading="lazy" draggable="false"><span class="rc-cap"><b>とら</b><small>猫</small></span></li>
-          <li class="rc"><img src="assets/photos/t/budgie.jpg" alt="セキセイインコのあお" width="480" height="480" loading="lazy" draggable="false"><span class="rc-cap"><b>あお</b><small>セキセイインコ</small></span></li>
-          <li class="rc"><img src="assets/photos/t/hamster2.jpg" alt="ハムスターのしらたま" width="480" height="480" loading="lazy" draggable="false"><span class="rc-cap"><b>しらたま</b><small>ハムスター</small></span></li>
-          <li class="rc"><img src="assets/photos/t/shelter.jpg" alt="犬のきなこ" width="480" height="480" loading="lazy" draggable="false"><span class="rc-cap"><b>きなこ</b><small>犬</small></span></li>
-          <li class="rc"><img src="assets/photos/t/gecko2.jpg" alt="ヒョウモントカゲモドキのゆず" width="480" height="480" loading="lazy" draggable="false"><span class="rc-cap"><b>ゆず</b><small>ヒョウモントカゲモドキ</small></span></li>
+          <li class="rc"><img src="assets/photos/t/cat.jpg" alt="猫のむぎ" width="480" height="480" draggable="false"><span class="rc-cap"><b>むぎ</b><small>猫</small></span></li>
+          <li class="rc"><img src="assets/photos/t/hamster.jpg" alt="ハムスターのだいふく" width="480" height="480" draggable="false"><span class="rc-cap"><b>だいふく</b><small>ハムスター</small></span></li>
+          <li class="rc"><img src="assets/photos/t/dog.jpg" alt="犬のこむぎ" width="480" height="480" draggable="false"><span class="rc-cap"><b>こむぎ</b><small>犬</small></span></li>
+          <li class="rc"><img src="assets/photos/t/bird.jpg" alt="インコのそら" width="480" height="480" draggable="false"><span class="rc-cap"><b>そら</b><small>インコ</small></span></li>
+          <li class="rc"><img src="assets/photos/t/rabbit.jpg" alt="うさぎのもち" width="480" height="480" draggable="false"><span class="rc-cap"><b>もち</b><small>うさぎ</small></span></li>
+          <li class="rc"><img src="assets/photos/t/gecko.jpg" alt="ヒョウモントカゲモドキのレモン" width="480" height="480" draggable="false"><span class="rc-cap"><b>レモン</b><small>ヒョウモントカゲモドキ</small></span></li>
+          <li class="rc"><img src="assets/photos/t/cat2.jpg" alt="猫のミルク" width="480" height="480" draggable="false"><span class="rc-cap"><b>ミルク</b><small>猫</small></span></li>
+          <li class="rc"><img src="assets/photos/t/guinea.jpg" alt="モルモットのくるみ" width="480" height="480" draggable="false"><span class="rc-cap"><b>くるみ</b><small>モルモット</small></span></li>
+          <li class="rc"><img src="assets/photos/t/puppy.jpg" alt="犬のポチ" width="480" height="480" draggable="false"><span class="rc-cap"><b>ポチ</b><small>犬</small></span></li>
+          <li class="rc"><img src="assets/photos/t/cockatiel.jpg" alt="オカメインコのぴぃ" width="480" height="480" draggable="false"><span class="rc-cap"><b>ぴぃ</b><small>オカメインコ</small></span></li>
+          <li class="rc"><img src="assets/photos/t/tortoise.jpg" alt="リクガメのカメきち" width="480" height="480" draggable="false"><span class="rc-cap"><b>カメきち</b><small>リクガメ</small></span></li>
+          <li class="rc"><img src="assets/photos/t/cat3.jpg" alt="猫のとら" width="480" height="480" draggable="false"><span class="rc-cap"><b>とら</b><small>猫</small></span></li>
+          <li class="rc"><img src="assets/photos/t/budgie.jpg" alt="セキセイインコのあお" width="480" height="480" draggable="false"><span class="rc-cap"><b>あお</b><small>セキセイインコ</small></span></li>
+          <li class="rc"><img src="assets/photos/t/hamster2.jpg" alt="ハムスターのしらたま" width="480" height="480" draggable="false"><span class="rc-cap"><b>しらたま</b><small>ハムスター</small></span></li>
+          <li class="rc"><img src="assets/photos/t/shelter.jpg" alt="犬のきなこ" width="480" height="480" draggable="false"><span class="rc-cap"><b>きなこ</b><small>犬</small></span></li>
+          <li class="rc"><img src="assets/photos/t/gecko2.jpg" alt="ヒョウモントカゲモドキのゆず" width="480" height="480" draggable="false"><span class="rc-cap"><b>ゆず</b><small>ヒョウモントカゲモドキ</small></span></li>
     </ul>
   </div>
   <div class="ring-ctl">
@@ -758,9 +775,9 @@ button{font-family:inherit}
 
 <section class="section" id="demo" aria-labelledby="d-title">
   <div class="wrap">
-    <div class="head reveal"><span class="kicker">使い方</span><h2 id="d-title">あなたに合った使い方を</h2></div>
     <div class="demo">
       <div>
+        <div class="dhead reveal"><span class="kicker">使い方</span><h2 id="d-title">あなたは、<br>どれに近いですか。</h2><p>えらぶと、<span class="pc">右の</span><span class="sp">下の</span>画面が変わります。</p></div>
         <div class="seg" role="tablist" aria-label="使う人">
           <button role="tab" id="t-a" aria-controls="p-a" aria-selected="true" data-view="v-home">動物と暮らす人</button>
           <button role="tab" id="t-b" aria-controls="p-b" aria-selected="false" tabindex="-1" data-view="v-map">動物が好きな人</button>
@@ -844,61 +861,21 @@ button{font-family:inherit}
 
 <!-- 安心のしくみ -->
 <section class="section tint" id="safety" aria-labelledby="s-title">
-  <div class="wrap">
-    <div class="head reveal"><span class="kicker">安心のしくみ</span><h2 id="s-title">だれもが、気持ちよく。</h2><p>動物の話を安心して楽しめるように、守るしくみを入れています。</p></div>
-    <div class="trust">
-      <div class="reveal"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v6c0 4.4-3 7.6-7 9-4-1.4-7-4.6-7-9V6z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></span><h3>ひどい言葉をふせぐ</h3><p>ひどい言葉や連絡先を投稿できないようにする、安全のしくみを入れています。</p></div>
-      <div class="reveal"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="2"/><path d="M6.5 6.5l11 11" stroke="currentColor" stroke-width="2"/></svg></span><h3>ブロック</h3><p>ブロックした相手からは、メッセージが届きません。だれをブロックしたかは、ほかの人には見えません。</p></div>
-      <div class="reveal"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 20c.8-4 4-6 8-6s7.2 2 8 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span><h3>年齢は年代だけ</h3><p>プロフィールの年齢は「20代」のような年代だけを見せます。生年月日は本人しか見られません。</p></div>
-      <div class="reveal"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 21V4h11l-2 4 2 4H5" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></svg></span><h3>通報できる</h3><p>気になる投稿やコメントは、アプリの中から通報できます。運営が内容を確かめて対応します。</p></div>
-      <div class="reveal"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10" width="14" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3" fill="none" stroke="currentColor" stroke-width="2"/></svg></span><h3>記録は本人だけ</h3><p>うちの子の記録帳は、本人だけが見られます。</p></div>
-      <div class="reveal"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h10a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3zM5 17a3 3 0 0 1 3-3h10" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></span><h3>みんなの約束</h3><p>使うときのきまりは、<a href="terms.html">利用規約</a>にまとめています。</p></div>
+  <div class="wrap safety">
+    <div class="s-side reveal">
+      <span class="kicker">安心のしくみ</span>
+      <h2 id="s-title">だれもが、<br>気持ちよく。</h2>
+      <p>動物の話を安心して楽しめるように、守るしくみを入れています。</p>
+      <img src="assets/photos/w/cat2.jpg" alt="" width="734" height="1100" loading="lazy">
     </div>
-  </div>
-</section>
-
-<!-- 使う人ごとに -->
-<section class="section" id="plans" aria-labelledby="pl-title">
-  <div class="wrap">
-    <div class="head reveal"><span class="kicker">使う人ごとに</span><h2 id="pl-title">使う人ごとに、できること</h2></div>
-    <div class="plans">
-      <div class="plan reveal">
-        <span class="who">動物と暮らす人</span>
-        <div class="price">無料</div>
-        <p class="desc">うちの子の写真を見せ合ったり、毎日の記録をつけたり。</p>
-        <ul>
-          <li><svg aria-hidden="true"><use href="#i-tick"/></svg>ペット自慢・週間ランキング</li>
-          <li><svg aria-hidden="true"><use href="#i-tick"/></svg>うちの子の記録帳・思い出の日</li>
-          <li><svg aria-hidden="true"><use href="#i-tick"/></svg>質問掲示板・イベント</li>
-        </ul>
-        <a class="btn btn-ghost" href="#features">できることを見る</a>
-      </div>
-      <div class="plan hl reveal" id="orgs-plan">
-        <span class="badge">保護団体の方へ</span>
-        <span class="who">保護団体</span>
-        <div class="price">無料</div>
-        <p class="desc">保護された子たちのことや活動を、動物好きの人に届けられます。</p>
-        <ul>
-          <li><svg aria-hidden="true"><use href="#i-tick"/></svg>お知らせ・活動報告を自分で出せる</li>
-          <li><svg aria-hidden="true"><use href="#i-tick"/></svg>里親募集・ボランティア募集</li>
-          <li><svg aria-hidden="true"><use href="#i-tick"/></svg>どうぶつマップで見つけてもらえる</li>
-          <li><svg aria-hidden="true"><use href="#i-tick"/></svg>里親募集を画像にしてSNSでシェア</li>
-        </ul>
-        <a class="btn btn-primary" href="#partners">団体での使い方を見る</a>
-      </div>
-      <div class="plan reveal">
-        <span class="who">動物が好きな人</span>
-        <div class="price">無料</div>
-        <p class="desc">飼っていなくても大丈夫。動物のそばにいられます。</p>
-        <ul>
-          <li><svg aria-hidden="true"><use href="#i-tick"/></svg>里親募集・迷子の情報を見る</li>
-          <li><svg aria-hidden="true"><use href="#i-tick"/></svg>ボランティア募集を探す</li>
-          <li><svg aria-hidden="true"><use href="#i-tick"/></svg>みんなのペット自慢を楽しむ</li>
-        </ul>
-        <a class="btn btn-ghost" href="#demo">使い方を見る</a>
-      </div>
-    </div>
-    <p class="plan-note">2027年2月公開予定。お金のことが変わるときは、利用規約でお知らせします。</p>
+    <ol class="s-list">
+      <li class="reveal"><span class="n">01</span><div><h3>ひどい言葉をふせぐ</h3><p>ひどい言葉や連絡先を投稿できないようにする、安全のしくみを入れています。</p></div></li>
+      <li class="reveal"><span class="n">02</span><div><h3>ブロック</h3><p>ブロックした相手からは、メッセージが届きません。だれをブロックしたかは、ほかの人には見えません。</p></div></li>
+      <li class="reveal"><span class="n">03</span><div><h3>年齢は年代だけ</h3><p>プロフィールの年齢は「20代」のような年代だけを見せます。生年月日は本人しか見られません。</p></div></li>
+      <li class="reveal"><span class="n">04</span><div><h3>通報できる</h3><p>気になる投稿やコメントは、アプリの中から通報できます。運営が内容を確かめて対応します。</p></div></li>
+      <li class="reveal"><span class="n">05</span><div><h3>記録は本人だけ</h3><p>うちの子の記録帳は、本人だけが見られます。</p></div></li>
+      <li class="reveal"><span class="n">06</span><div><h3>みんなの約束</h3><p>使うときのきまりは、<a href="terms.html">利用規約</a>にまとめています。</p></div></li>
+    </ol>
   </div>
 </section>
 
@@ -974,6 +951,7 @@ button{font-family:inherit}
     <div class="faq">
       <details><summary>いつから使えますか？</summary><p>2027年2月公開予定です。公開したら、このページのお知らせでお伝えします。</p></details>
       <details><summary>どんな動物と暮らしている人が使えますか？</summary><p>犬・猫・うさぎ・小鳥・小動物・爬虫類など、いろいろな動物と暮らす人に使ってほしいアプリです。ランキングも動物の種類ごとに見られます。</p></details>
+      <details><summary>お金はかかりますか？</summary><p>無料で使えます。お金のことが変わるときは、利用規約でお知らせします。</p></details>
       <details><summary>動物を飼っていなくても使えますか？</summary><p>はい。動物が好きな方に使ってほしいアプリです。里親募集やボランティア募集を見たり、保護団体のお知らせを読んだり、みんなのペット自慢を楽しんだりできます。</p></details>
       <details><summary>保護団体として使えますか？</summary><p>はい。アプリから申しこむと、運営が確かめたあとに、お知らせ・活動報告や、里親募集・ボランティア募集を出せるようになります。くわしくは<a href="#partners">保護団体・動物病院の方へ</a>をご覧ください。</p></details>
       <details><summary>動物病院も載せられますか？</summary><p>はい。病院の方がアプリから申しこむと、運営が確かめたあとに、どうぶつマップに載ります。診療時間や、みている動物の種類などを、病院のページから直せます。</p></details>
